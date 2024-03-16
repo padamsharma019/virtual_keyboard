@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech to Text</title>
+</head>
+<body>
+    <button id="toggleButton">Start Voice Input</button>
+    <div id="output"></div>
+
+    <script>
+        // Initialize the SpeechRecognition object
+        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+
+        // Set interim results to true for continuous transcription
+        recognition.interimResults = true;
+
+        // Initialize the flag to track whether speech recognition is active
+        let isListening = false;
+
+        // Get references to the button and output div
+        const toggleButton = document.getElementById('toggleButton');
+        const outputDiv = document.getElementById('output');
+
+        // Function to handle button click
+        function toggleSpeechRecognition() {
+            if (isListening) {
+                // Stop speech recognition
+                recognition.stop();
+                toggleButton.textContent = 'Start Voice Input';
+            } else {
+                // Start speech recognition
+                recognition.start();
+                toggleButton.textContent = 'Stop Voice Input';
+            }
+            // Toggle the flag
+            isListening = !isListening;
+        }
+
+        // Event listener for button click
+        toggleButton.addEventListener('click', toggleSpeechRecognition);
+
+        // Event listener for speech recognition results
+        recognition.addEventListener('result', (event) => {
+            const transcript = Array.from(event.results)
+                .map((result) => result[0].transcript)
+                .join('');
+
+            // Display the transcribed text
+            outputDiv.textContent = transcript;
+        });
+    </script>
+</body>
+</html>
