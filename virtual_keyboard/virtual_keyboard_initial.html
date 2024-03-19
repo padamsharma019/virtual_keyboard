@@ -222,6 +222,48 @@
             background-color: #0c5310;
         }
 
+        html {
+        font-size: 20px;
+        line-height: 1.6;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      }
+      form * {
+        font-family: inherit;
+        font-size: inherit;
+      }
+      img {
+        width: 20%;
+        max-width: 20%;
+      }
+
+.search-form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-form input[type="search"] {
+    height: 30px;
+    width: 200px;
+    padding: 1px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    margin: 0 10px;
+    background-color: #ebebeb;
+}
+
+.search-form button {
+    height: 30px;
+    width: 50px;
+    padding: 1px 1px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #ebebeb;
+    text-size-adjust: 200%;
+}
+
 /* border: 4px solid #ff4c24; */
 
       /*  .input-field {
@@ -245,7 +287,13 @@
     </style>
 </head>
 <body>
-
+    <main>
+        <form class="search-form">
+            <input id="search" type="search" class="key">
+            <button id="btnSearch" class="key">Go</button>
+        </form>        
+        <div class="out"></div>
+      </main>
 
     <!-- <div class="content">
       <input type="text" class="input-field" id="text-input" readonly>
@@ -892,6 +940,41 @@ function startVoiceInput(textInput) {
 
 function stopVoiceInput() {
 }
+
+// from here it starts
+// the code of api 
+
+let APIKEY = "OYeBl3shtyfZsVn6EFI9XCyvgFmTE0Xo";
+      document.addEventListener("DOMContentLoaded", init);
+      function init() {
+        document.getElementById("btnSearch").addEventListener("click", ev => {
+          ev.preventDefault();
+          let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=1&q=`;
+          let str = document.getElementById("search").value.trim();
+          url = url.concat(str);
+          console.log(url);
+          fetch(url)
+            .then(response => response.json())
+            .then(content => {
+              console.log(content.data);
+              console.log("META", content.meta);
+              let fig = document.createElement("figure");
+              let img = document.createElement("img");
+              let fc = document.createElement("figcaption");
+              img.src = content.data[0].images.downsized.url;
+              img.alt = content.data[0].title;
+              fc.textContent = content.data[0].title;
+              fig.appendChild(img);
+              fig.appendChild(fc);
+              let out = document.querySelector(".out");
+              out.insertAdjacentElement("afterbegin", fig);
+              document.querySelector("#search").value = "";
+            })
+            .catch(err => {
+              console.error(err);
+            });
+        });
+      }
         </script>
         
     </div>
