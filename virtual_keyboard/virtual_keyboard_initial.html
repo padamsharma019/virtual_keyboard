@@ -157,13 +157,40 @@
         }
 
 
-        .color-panel {
+        /* .color-panel {
             top: 0;
             right: 0;
             padding: 10px;
             background-color: #ffffff;
             box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
             z-index: 1000;
+        } */
+
+        .color-panel {
+            display: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 10px;
+            background-color: #e6dbdb;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .open-color-panel-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .color-panel-toggle:hover {
+            background-color: #0c5310;
         }
 
         .color-input {
@@ -190,15 +217,17 @@
         }
 
         .textarea {
-              width: 700px;
-              height: 50px;
+              width: 980px;
+              height: 25px;
               padding: 10px;
               border: 4px dashed #b91c1c;
               text-size-adjust: 100%;
               font-size: x-large;
               /* font-family: 'Courier New', Courier, monospace; */
               text-align: center;
-              margin: 10px 0;
+              margin-top: 15px;
+              margin-bottom: 10px;
+              /* margin: 10px 0; */
               background-color: #ebebeb;
               border-radius: 5px;
             }
@@ -209,7 +238,7 @@
             padding: 10px 35px;
             background-color: #4CAF50;
             color: white;
-            border: none;
+            border: 1px solid #000;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.1s;
@@ -238,30 +267,41 @@
       }
 
 .search-form {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
+    display: none;
+    /* align-items: center;
+    margin: 0 auto; */
+    /* max-width: 3000px; */
 }
 
 .search-form input[type="search"] {
-    height: 30px;
-    width: 200px;
-    padding: 1px;
-    border: 1px solid #000;
-    border-radius: 5px;
-    margin: 0 10px;
-    background-color: #ebebeb;
-}
-
-.search-form button {
-    height: 30px;
-    width: 50px;
+    height: 39px;
+    width: 260px;
     padding: 1px 1px;
     border: 1px solid #000;
     border-radius: 5px;
+    background-color: #f0f0f0;
+    font-size: 16px;
+    outline: none;
+    margin: 0 10px;
+}
+
+.search-form button {
+    height: 39px;
+    width: 65px;
+    padding: 1px 1px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background-color: #4caf50;
+    color: #fff;
+    font-size: 16px;
     cursor: pointer;
-    background-color: #ebebeb;
-    text-size-adjust: 200%;
+    outline: none;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.search-form button:hover {
+    background-color: #0c5310;
 }
 
 /* border: 4px solid #ff4c24; */
@@ -288,10 +328,10 @@
 </head>
 <body>
     <main>
-        <form class="search-form">
-            <input id="search" type="search" class="key">
+        <form class="search-form" id="searchForm">
+            <input id="search" type="search" class="key" placeholder="Search">
             <button id="btnSearch" class="key">Go</button>
-        </form>        
+        </form>
         <div class="out"></div>
       </main>
 
@@ -423,11 +463,16 @@
             <button class="kk space" onclick="playSound(this); typeCharacter('space')"></button>
             <button class="kk" onclick="playSound(this); typeCharacter('')">alt</button>
             <button class="kk" onclick="playSound(this); typeCharacter('')">ctrl</button>
-            <button class="kk e" onclick="playSound(this); window.open('https:/tenor.com/', '_blank') ">GIF</button>
+            <button  class="kk e">GIF</button> <!-- id="gif-button"
+            <div id="gif-search-box" class="gif-search-box">
+            <input id="gif-search-input" type="search" placeholder="Search GIFs">
+            <button id="gif-search-btn">Search</button> -->
+            <!-- Additional elements for displaying GIFs -->
+            <!-- <button class="kk e" onclick="playSound(this); window.open('https:/tenor.com/', '_blank') ">GIF</button> -->
         </div>
          
          
-        <div class="color-panel">
+        <div id = "color-panel" class="color-panel">
             <h3>Keyboard Color Settings</h3>
             <label for="backgroundColor" class="color-input">Background Color:</label>
             <input type="color" id="backgroundColor" class="color-input">
@@ -437,6 +482,8 @@
     
             <button id="apply-colors">Apply Colors</button>
         </div>
+        <button id="open-color-panel-btn" class="open-color-panel-btn">Open Color Panel</button>
+
 
         <audio id="keyPressSound" keypress = "auto">
             <source src="C:\Users\HP\Downloads\KeypressSound1.mp3" type="audio/mp3">
@@ -688,6 +735,15 @@ const backgroundColorInput = document.getElementById('backgroundColor');
             });
             
         }
+
+        const colorPanel = document.getElementById('color-panel');
+        const openColorPanelBtn = document.getElementById('open-color-panel-btn');
+
+        openColorPanelBtn.addEventListener('click', function() {
+            colorPanel.style.display = colorPanel.style.display === 'block' ? 'none' : 'block';
+        });
+
+
 
         function toggleSymbols() {
             const symbolsRow = document.querySelector('.symbols-row');
@@ -975,6 +1031,31 @@ let APIKEY = "OYeBl3shtyfZsVn6EFI9XCyvgFmTE0Xo";
             });
         });
       }
+
+    //   const gifButton = document.getElementById('gif-button');
+    //     const gifSearchBox = document.getElementById('gif-search-box');
+
+    //     gifSearchBox.style.display = 'none';
+
+    //     gifButton.addEventListener('click', function() {
+    //         gifSearchBox.style.display = gifSearchBox.style.display === 'block' ? 'none' : 'block';
+    //     });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const gifButton = document.querySelector('.e');
+    const searchForm = document.getElementById('searchForm');
+    gifButton.addEventListener('click', function() {
+        if (searchForm.style.display === 'none' || searchForm.style.display === '') {
+            searchForm.style.display = 'block'; 
+        } else {
+            searchForm.style.display = 'none'; 
+        }
+    });
+});
+
+    // gliding typing effect
+    // code is ---> here
+    
         </script>
         
     </div>
