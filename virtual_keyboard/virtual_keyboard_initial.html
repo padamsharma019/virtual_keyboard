@@ -1002,35 +1002,48 @@ function stopVoiceInput() {
 
 let APIKEY = "OYeBl3shtyfZsVn6EFI9XCyvgFmTE0Xo";
       document.addEventListener("DOMContentLoaded", init);
+      
       function init() {
-        document.getElementById("btnSearch").addEventListener("click", ev => {
-          ev.preventDefault();
-          let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=1&q=`;
-          let str = document.getElementById("search").value.trim();
-          url = url.concat(str);
-          console.log(url);
-          fetch(url)
+    document.getElementById("btnSearch").addEventListener("click", ev => {
+        ev.preventDefault();
+        let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=1&q=`;
+        let str = document.getElementById("search").value.trim();
+        url = url.concat(str);
+        console.log(url);
+        fetch(url)
             .then(response => response.json())
             .then(content => {
-              console.log(content.data);
-              console.log("META", content.meta);
-              let fig = document.createElement("figure");
-              let img = document.createElement("img");
-              let fc = document.createElement("figcaption");
-              img.src = content.data[0].images.downsized.url;
-              img.alt = content.data[0].title;
-              fc.textContent = content.data[0].title;
-              fig.appendChild(img);
-              fig.appendChild(fc);
-              let out = document.querySelector(".out");
-              out.insertAdjacentElement("afterbegin", fig);
-              document.querySelector("#search").value = "";
+                console.log(content.data);
+                console.log("META", content.meta);
+
+                // Remove previous GIF
+                const previousGif = document.querySelector(".out figure");
+                if (previousGif) {
+                    previousGif.remove();
+                }
+
+                // Create new figure element for the new GIF
+                let fig = document.createElement("figure");
+                fig.style.display = "flex";
+                fig.style.justifyContent = "center"; // Center horizontally
+                fig.style.alignItems = "center"; // Center vertically
+
+                let img = document.createElement("img");
+                img.src = content.data[0].images.downsized.url;
+                img.alt = content.data[0].title;
+                fig.appendChild(img);
+                
+                // Insert the new GIF before the previous search input
+                let out = document.querySelector(".out");
+                out.insertAdjacentElement("afterbegin", fig);
+
+                document.querySelector("#search").value = "";
             })
             .catch(err => {
-              console.error(err);
+                console.error(err);
             });
-        });
-      }
+    });
+}
 
     //   const gifButton = document.getElementById('gif-button');
     //     const gifSearchBox = document.getElementById('gif-search-box');
