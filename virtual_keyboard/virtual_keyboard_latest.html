@@ -7,7 +7,6 @@
 
     <!-- <link rel="icon" -->
     <!-- href="C:\Users\HP\Downloads\Fevicon[1].jpeg"> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.css">
 
     <style>
 
@@ -158,6 +157,15 @@
         }
 
 
+        /* .color-panel {
+            top: 0;
+            right: 0;
+            padding: 10px;
+            background-color: #ffffff;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        } */
+
         .color-panel {
             top: 0;
             right: 0;
@@ -165,6 +173,22 @@
             background-color: #ffffff;
             box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
             z-index: 1000;
+        }
+
+        .open-color-panel-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .color-panel-toggle:hover {
+            background-color: #0c5310;
         }
 
         .color-input {
@@ -199,18 +223,20 @@
               font-size: x-large;
               /* font-family: 'Courier New', Courier, monospace; */
               text-align: center;
-              margin: 10px 0;
+              margin-top: 15px;
+              margin-bottom: 10px;
+              /* margin: 10px 0; */
               background-color: #ebebeb;
               border-radius: 5px;
             }
 
         .border-indigo{ border-color: #4238ca; }
 
-        .voice-toggle {
+        button.voice-toggle {
             padding: 10px 35px;
             background-color: #4CAF50;
             color: white;
-            border: none;
+            border: 1px solid #000;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.1s;
@@ -219,7 +245,7 @@
             outline: none;
             }
 
-        .voice-toggle:hover {
+        button.voice-toggle:hover {
             background-color: #0c5310;
         }
 
@@ -239,30 +265,41 @@
       }
 
 .search-form {
-    display: flex;
+    display: none;
     align-items: center;
-    margin-bottom: 20px;
+    margin: 0 auto; 
+    max-width: 300px;
 }
 
 .search-form input[type="search"] {
     height: 30px;
-    width: 200px;
-    padding: 1px;
+    width: 220px;
+    padding: 1px 1px;
     border: 1px solid #000;
     border-radius: 5px;
+    background-color: #f0f0f0;
+    font-size: 16px;
+    outline: none;
     margin: 0 10px;
-    background-color: #ebebeb;
 }
 
 .search-form button {
     height: 30px;
-    width: 50px;
+    width: 40px;
     padding: 1px 1px;
     border: 1px solid #000;
     border-radius: 5px;
-    /* cursor: pointer; */
-    background-color: #ebebeb;
-    text-size-adjust: 200%;
+    background-color: #4caf50;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.search-form button:hover {
+    background-color: #0c5310;
 }
 
 /* border: 4px solid #ff4c24; */
@@ -288,13 +325,13 @@
     </style>
 </head>
 <body>
-    <div class="row gif_sec" style="display: none;">
-        <form class="search-form">
+    <main>
+        <form class="search-form" id="searchForm">
             <input id="search" type="search" class="key" placeholder="Search">
-            <button class='voice-toggle' style="background-color: #4CAF50;" id="btnSearch" class="key">Go</button>
-        </form>        
+            <button id="btnSearch" class="key">Go</button>
+        </form>
         <div class="out"></div>
-    </div>
+      </main>
 
     <!-- <div class="content">
       <input type="text" class="input-field" id="text-input" readonly>
@@ -313,23 +350,6 @@
             <button class="voice-toggle" onclick="toggleVoiceInput()">Voice Input</button>
             <!-- <button onclick="toggleVoiceInput()">Voice Input</button> -->
 
-  <!-- ===============================emoji section========================================= -->
-
-<!--
-  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.js"></script>
-  
-  <script>
-      $('#mytextarea').emojioneArea({
-          pickerPosition: 'bottom'
-  });
-  
-  </script> 
-
-  -->
-  
-  
           
     <div class="keyboard">
 
@@ -441,11 +461,17 @@
             <button class="key kk space" onclick="playSound(this); typeCharacter('space')"></button>
             <button class="key kk" onclick="playSound(this); typeCharacter('')">alt</button>
             <button class="key kk" onclick="playSound(this); typeCharacter('')">ctrl</button>
-            <button class="key kk e" onclick="playSound(this);togglegif();"><!--window.open('https:/tenor.com/', '_blank')-->GIF</button>
+            <button  class="key kk e">GIF</button> <!-- id="gif-button"
+            <div id="gif-search-box" class="gif-search-box">
+            <input id="gif-search-input" type="search" placeholder="Search GIFs">
+            <button id="gif-search-btn">Search</button> -->
+            <!-- Additional elements for displaying GIFs -->
+            <!-- <button class="kk e" onclick="playSound(this); window.open('https:/tenor.com/', '_blank') ">GIF</button> -->
         </div>
+        <button id="open-color-panel-btn" class="open-color-panel-btn">Open Color Panel</button>
          
          
-        <div class="color-panel">
+        <div  class="color-panel" id = "color-panel" style="display: none;">
             <h3>Keyboard Color Settings</h3>
             <label for="backgroundColor" class="color-input">Background Color:</label>
             <input type="color" id="backgroundColor" class="color-input">
@@ -455,9 +481,11 @@
     
             <button id="apply-colors">Apply Colors</button>
         </div>
+        <!-- <button id="open-color-panel-btn" class="open-color-panel-btn">Open Color Panel</button> -->
+
 
         <audio id="keyPressSound" keypress = "auto">
-            <source src="D:\sem 2 notes\tech_abhi\KeypressSound1.mp3" type="audio/mp3">
+            <source src="C:\Users\HP\Downloads\KeypressSound1.mp3" type="audio/mp3">
         </audio>
     
 
@@ -707,16 +735,19 @@ const backgroundColorInput = document.getElementById('backgroundColor');
             
         }
 
+        const colorPanel = document.getElementById('color-panel');
+        const openColorPanelBtn = document.getElementById('open-color-panel-btn');
+
+        openColorPanelBtn.addEventListener('click', function() {
+            colorPanel.style.display = colorPanel.style.display === 'block' ? 'none' : 'block';
+        });
+
+
+
         function toggleSymbols() {
             const symbolsRow = document.querySelector('.symbols-row');
             symbolsRow.style.display = (symbolsRow.style.display === 'none') ? 'flex' : 'none';
         }
-
-        function togglegif() {
-            const gifRow = document.querySelector('.gif_sec');
-            gifRow.style.display = (gifRow.style.display === 'none') ? 'flex' : 'none';
-        }
-
         function gifs() {
             const symbolsRow = document.querySelector('.symbols-row');
             symbolsRow.style.display = (symbolsRow.style.display === 'none') ? 'flex' : 'none';
@@ -733,7 +764,7 @@ const backgroundColorInput = document.getElementById('backgroundColor');
 
     key.addEventListener('mouseout', () => {
         key.style.transform = 'translateY(0)';
-    });
+    });
 });
 
         // =======================numerical _____ tab============================
@@ -945,7 +976,6 @@ function toggleVoiceInput() {
     if (isVoiceInput) {
         button.textContent = 'Toggle Typing';
         startVoiceInput(textInput);
-        button.textContent = "Voice Input";
     } else {
         button.textContent = 'Voice Input';
         stopVoiceInput();
@@ -972,36 +1002,72 @@ function stopVoiceInput() {
 
 let APIKEY = "OYeBl3shtyfZsVn6EFI9XCyvgFmTE0Xo";
       document.addEventListener("DOMContentLoaded", init);
+      
       function init() {
-        document.getElementById("btnSearch").addEventListener("click", ev => {
-          ev.preventDefault();
-          let url = "https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=1&q=";
-          let str = document.getElementById("search").value.trim();
-          url = url.concat(str);
-          console.log(url);
-          fetch(url)
+    document.getElementById("btnSearch").addEventListener("click", ev => {
+        ev.preventDefault();
+        let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=1&q=`;
+        let str = document.getElementById("search").value.trim();
+        url = url.concat(str);
+        console.log(url);
+        fetch(url)
             .then(response => response.json())
             .then(content => {
-              console.log(content.data);
-              console.log("META", content.meta);
-              let fig = document.createElement("figure");
-              let img = document.createElement("img");
-              let fc = document.createElement("figcaption");
-              img.src = content.data[0].images.downsized.url;
-              img.alt = content.data[0].title;
-              fc.textContent = content.data[0].title;
-              fig.appendChild(img);
-              fig.appendChild(fc);
-              let out = document.querySelector(".out");
-              out.insertAdjacentElement("afterbegin", fig);
-              document.querySelector("#search").value = "";
+                console.log(content.data);
+                console.log("META", content.meta);
+
+                // Remove previous GIF
+                const previousGif = document.querySelector(".out figure");
+                if (previousGif) {
+                    previousGif.remove();
+                }
+
+                // Create new figure element for the new GIF
+                let fig = document.createElement("figure");
+                fig.style.display = "flex";
+                fig.style.justifyContent = "center"; // Center horizontally
+                fig.style.alignItems = "center"; // Center vertically
+
+                let img = document.createElement("img");
+                img.src = content.data[0].images.downsized.url;
+                img.alt = content.data[0].title;
+                fig.appendChild(img);
+                
+                // Insert the new GIF before the previous search input
+                let out = document.querySelector(".out");
+                out.insertAdjacentElement("afterbegin", fig);
+
+                document.querySelector("#search").value = "";
             })
             .catch(err => {
-              console.error(err);
+                console.error(err);
             });
-        });
-      }
+    });
+}
 
+    //   const gifButton = document.getElementById('gif-button');
+    //     const gifSearchBox = document.getElementById('gif-search-box');
+
+    //     gifSearchBox.style.display = 'none';
+
+    //     gifButton.addEventListener('click', function() {
+    //         gifSearchBox.style.display = gifSearchBox.style.display === 'block' ? 'none' : 'block';
+    //     });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const gifButton = document.querySelector('.e');
+    const searchForm = document.getElementById('searchForm');
+    gifButton.addEventListener('click', function() {
+        if (searchForm.style.display === 'none' || searchForm.style.display === '') {
+            searchForm.style.display = 'block'; 
+        } else {
+            searchForm.style.display = 'none'; 
+        }
+    });
+});
+
+    // gliding typing effect
+    // code is ---> here
     
         </script>
         
