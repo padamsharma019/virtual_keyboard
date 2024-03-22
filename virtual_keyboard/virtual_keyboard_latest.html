@@ -187,9 +187,10 @@
 
         .textarea {
               width: 980px;
-              height: 25px;
+              height: 35px;
               padding: 10px;
-              border: 4px dashed #b91c1c;
+              border: 4px solid black;
+              border-radius: 5px;
               text-size-adjust: 100%;
               font-size: x-large;
               text-align: center;
@@ -272,6 +273,74 @@
     background-color: #0c5310;
 }
 
+.autocomplete-suggestions {
+    background-color: #eeeeee; /* Match the background color of your keyboard */
+    border: 1px solid #ccc;
+    border-top: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.autocomplete-suggestion {
+    padding: 10px; /* Increase padding for better spacing */
+    cursor: pointer;
+    font-size: 16px; /* Match the font size with your keyboard */
+    color: #333; /* Match the text color with your keyboard */
+}
+
+.autocomplete-suggestion:hover {
+    background-color: #f0f0f0; /* Lighter background color on hover */
+}
+
+/* body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+}
+
+#textInput {
+    width: calc(100% - 10px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+}
+
+li:hover {
+    background-color: #e9e9e9;
+} */
+
     </style>
 </head>
 <body>
@@ -288,6 +357,20 @@
           <div class="keyboard-container">
             <textarea class="textarea" id="mytextarea" placeholder="Start typing or click the button to start voice input..."></textarea>
             <button class="voice-toggle" onclick="toggleVoiceInput()">Voice Input</button>
+
+
+
+
+            <!-- <div class="container">
+                <h2>Predictive Text Input</h2>
+                <form id="textInputForm">
+                    <input type="text" id="textInput" placeholder="Start typing...">
+                    <ul id="suggestions"></ul>
+                </form>
+            </div> -->
+
+
+
           
     <div class="keyboard">
 
@@ -312,14 +395,8 @@
         <button class="key" onclick="playSound(this); typeCharacter('&#128528;')">😐</button>
         <button class="key" onclick="playSound(this); typeCharacter('&#128545;')">😠</button>
         <button class="key" onclick="playSound(this); typeCharacter('&#127881;')">🎉</button>
-        </div>
-      <!--  <div class="row">
-            <button class="key gifButton" onclick="gifs()">Gif</button>
-
-        </div>   -->
-        
+        </div>      
        
-
         <div class="row">
             <button class="key _1" onclick="playSound(this); typeCharacter('`')">`</button>
             <button class="key" onclick="playSound(this); typeCharacter('1')">1</button>
@@ -353,8 +430,6 @@
             <button class="key" onclick="playSound(this); typeCharacter('&#93')">]</button>
             <button class="key" onclick="playSound(this); typeCharacter('&#x7C')">|</button>
          
-            
-           
         </div>
         <div class="row">
             <button class=" key caps" onclick="playSound(this); typeCharacter('caps')">caps</button>
@@ -389,21 +464,15 @@
             
         <div class="row">
             <button class="key kk num" onclick="playSound(this); typeCharacter('toggle')" id="toggle">?123</button>
-            <!-- <button class="k" onclick="playSound(this); typeCharacter('')">fn</button> -->
             <button class="key kk" onclick="playSound(this); toggleSymbols('emo') ;typeCharacter('emo')" id="emo">^_^</button>
             <button class="key kk" onclick="playSound(this); typeCharacter('')">alt</button>
             <button class="key kk space" onclick="playSound(this); typeCharacter('space')"></button>
             <button class="key kk" onclick="playSound(this); typeCharacter('')">alt</button>
             <button class="key kk" onclick="playSound(this); typeCharacter('')">ctrl</button>
-            <button  class="key kk e">GIF</button> <!-- id="gif-button"
-            <div id="gif-search-box" class="gif-search-box">
-            <input id="gif-search-input" type="search" placeholder="Search GIFs">
-            <button id="gif-search-btn">Search</button> -->
-            <!-- Additional elements for displaying GIFs -->
-            <!-- <button class="kk e" onclick="playSound(this); window.open('https:/tenor.com/', '_blank') ">GIF</button> -->
+            <button  class="key kk e">GIF</button>
         </div>
+
         <button id="open-color-panel-btn" class="open-color-panel-btn">Open Color Panel</button>
-         
          
         <div  class="color-panel" id = "color-panel" style="display: none;">
             <h3>Keyboard Color Settings</h3>
@@ -415,14 +484,10 @@
     
             <button id="apply-colors">Apply Colors</button>
         </div>
-        <!-- <button id="open-color-panel-btn" class="open-color-panel-btn">Open Color Panel</button> -->
-
 
         <audio id="keyPressSound" keypress = "auto">
             <source src="C:\Users\HP\Downloads\KeypressSound1.mp3" type="audio/mp3">
-        </audio>
-    
-
+        </audio>  
 
         <script>
              function playSound(button) {
@@ -689,7 +754,7 @@ const backgroundColorInput = document.getElementById('backgroundColor');
 
 
 
-        // =======================hover------key============================================
+// ======================= hover________key ============================================
 
         document.querySelectorAll('button').forEach(key => {
     key.addEventListener('mouseover', () => {
@@ -701,45 +766,7 @@ const backgroundColorInput = document.getElementById('backgroundColor');
     });
 });
 
-        // =======================numerical _____ tab============================
-
-//         const button1 = document.getElementById('button1');
-// const button2 = document.getElementById('button2');
-// const button3 = document.getElementById('button3');
-// const changeButton = document.getElementById('changeButton');
-
-// // Initial button names and functions
-// let buttonNames = ['Button 1', 'Button 2', 'Button 3'];
-// let buttonFunctions = [
-//   () => console.log('Button 1 clicked'),
-//   () => console.log('Button 2 clicked'),
-//   () => console.log('Button 3 clicked')
-// ];
-
-// // Function to change button names and functions
-// function changeButtons() {
-//   button1.textContent = 'New Button 1';
-//   button2.textContent = 'New Button 2';
-//   button3.textContent = 'New Button 3';
-
-//   buttonFunctions = [
-//     () => console.log('New Button 1 clicked'),
-//     () => console.log('New Button 2 clicked'),
-//     () => console.log('New Button 3 clicked')
-//   ];
-// }
-
-// // Attach the click event to the changeButton
-// changeButton.addEventListener('click', changeButtons);
-
-// // Attach click events to the buttons
-// button1.addEventListener('click', buttonFunctions[0]);
-// button2.addEventListener('click', buttonFunctions[1]);
-// button3.addEventListener('click', buttonFunctions[2]);
-
-
-
-// 22222=======================numerical _____ tab============================
+// ========================= numerical _____ tab ============================
 const button1 = document.getElementById('A');
 const Q = document.getElementById('Q');
         const button2 = document.getElementById('toggle');
@@ -885,20 +912,7 @@ const Q = document.getElementById('Q');
 
         buttonR.addEventListener('click', emoButton);
 
-// <------ voice to text code here ------>
-
-// function voice(){
-
-//         var recognition = new webkitSpeechRecognition();
-//         recognition.lang="en-GB";
-//         recognition.onresult= function(event){
-//             console.log(event);
-//             document.getElementById("speechToText").value = event.results[0][0].transcript;
-//         };
-//         recognition.start();
-// }
-
-
+// voice to text code here
 let isVoiceInput = false;
 
 function toggleVoiceInput() {
@@ -930,9 +944,7 @@ function startVoiceInput(textInput) {
 
 function stopVoiceInput() {
 }
-
-// from here it starts
-// the code of api 
+// code for api 
 
 let APIKEY = "OYeBl3shtyfZsVn6EFI9XCyvgFmTE0Xo";
       document.addEventListener("DOMContentLoaded", init);
@@ -950,27 +962,22 @@ let APIKEY = "OYeBl3shtyfZsVn6EFI9XCyvgFmTE0Xo";
                 console.log(content.data);
                 console.log("META", content.meta);
 
-                // Remove previous GIF
                 const previousGif = document.querySelector(".out figure");
                 if (previousGif) {
                     previousGif.remove();
                 }
 
-                // Create new figure element for the new GIF
                 let fig = document.createElement("figure");
                 fig.style.display = "flex";
-                fig.style.justifyContent = "center"; // Center horizontally
-                fig.style.alignItems = "center"; // Center vertically
+                fig.style.justifyContent = "center";
+                fig.style.alignItems = "center";
 
                 let img = document.createElement("img");
                 img.src = content.data[0].images.downsized.url;
                 img.alt = content.data[0].title;
                 fig.appendChild(img);
-                
-                // Insert the new GIF before the previous search input
                 let out = document.querySelector(".out");
                 out.insertAdjacentElement("afterbegin", fig);
-
                 document.querySelector("#search").value = "";
             })
             .catch(err => {
@@ -978,15 +985,6 @@ let APIKEY = "OYeBl3shtyfZsVn6EFI9XCyvgFmTE0Xo";
             });
     });
 }
-
-    //   const gifButton = document.getElementById('gif-button');
-    //     const gifSearchBox = document.getElementById('gif-search-box');
-
-    //     gifSearchBox.style.display = 'none';
-
-    //     gifButton.addEventListener('click', function() {
-    //         gifSearchBox.style.display = gifSearchBox.style.display === 'block' ? 'none' : 'block';
-    //     });
 
 document.addEventListener("DOMContentLoaded", function() {
     const gifButton = document.querySelector('.e');
@@ -1000,11 +998,93 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-    // gliding typing effect
-    // code is ---> here
+//prediction code
+
+// const input = document.getElementById('textInput');
+// const suggestionsList = document.getElementById('suggestions');
+// const wordPredictions = ['apple', 'banana', 'orange', 'pear', 'grape'];
+
+// function predictWords(input) {
+//     const inputLowerCase = input.toLowerCase();
+//     const predictions = wordPredictions.filter(word => word.startsWith(inputLowerCase));
+//     return predictions;
+// }
+
+// function updateSuggestions() {
+//     const inputText = input.value;
+//     const suggestions = predictWords(inputText);
     
+//     suggestionsList.innerHTML = '';
+//     suggestions.forEach(suggestion => {
+//         const li = document.createElement('li');
+//         li.textContent = suggestion;
+//         suggestionsList.appendChild(li);
+//     });
+// }
+
+// // Event listener for input changes
+// input.addEventListener('input', updateSuggestions);
+
+const textarea = document.getElementById('mytextarea');
+
+        const suggestions = ['Apple', 'Banana', 'Orange', 'Mango', 'Grapes'];
+
+        textarea.addEventListener('input', function(event) {
+            const inputText = event.target.value;
+            const cursorPosition = textarea.selectionStart;
+
+            const lastWord = inputText.substring(0, cursorPosition).split(/\s+/).pop();
+            const matchingSuggestions = suggestions.filter(suggestion =>
+                suggestion.toLowerCase().startsWith(lastWord.toLowerCase())
+            );
+
+            if (matchingSuggestions.length > 0) {
+                const suggestionList = document.createElement('ul');
+                suggestionList.classList.add('autocomplete-suggestions');
+
+                matchingSuggestions.forEach(suggestion => {
+                    const listItem = document.createElement('li');
+                    listItem.classList.add('autocomplete-suggestion');
+                    listItem.textContent = suggestion;
+
+                    listItem.addEventListener('click', function() {
+                        const textBeforeCursor = inputText.substring(0, cursorPosition - lastWord.length);
+                        const textAfterCursor = inputText.substring(cursorPosition);
+                        const completedText = textBeforeCursor + suggestion + ' ' + textAfterCursor;
+
+                        textarea.value = completedText;
+                        textarea.dispatchEvent(new Event('input')); // Trigger input event to update suggestions
+                    });
+
+                    suggestionList.appendChild(listItem);
+                });
+
+                // Position the suggestions below the textarea
+                suggestionList.style.top = textarea.offsetTop + textarea.offsetHeight + 'px';
+                suggestionList.style.left = textarea.offsetLeft + 'px';
+
+                // Remove existing suggestions if any
+                const existingSuggestions = document.querySelectorAll('.autocomplete-suggestions');
+                existingSuggestions.forEach(suggestion => suggestion.remove());
+
+                // Append new suggestions
+                document.body.appendChild(suggestionList);
+            } else {
+                // Remove suggestions if no matches
+                const existingSuggestions = document.querySelectorAll('.autocomplete-suggestions');
+                existingSuggestions.forEach(suggestion => suggestion.remove());
+            }
+        });
+
+        // Remove suggestions on click outside the textarea
+        document.addEventListener('click', function(event) {
+            if (!textarea.contains(event.target)) {
+                const existingSuggestions = document.querySelectorAll('.autocomplete-suggestions');
+                existingSuggestions.forEach(suggestion => suggestion.remove());
+            }
+        });
+
         </script>
-        
     </div>
 </body>
 </html>
