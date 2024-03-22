@@ -5,18 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- <link rel="icon" -->
-    <!-- href="C:\Users\HP\Downloads\Fevicon[1].jpeg"> -->
-
     <style>
 
         .body{
             font-family: Arial, sans-serif;
-          /*  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWyz98YznOygytpgtzTgTp5ajyi6MKe059-Q&usqp=CAU');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;  */
             background-color: #f0f0f0;
             display: flex;
             justify-content: center;
@@ -129,17 +121,6 @@
             border: #ff5733;
         }
 
-        /* .text-field {
-            width: 65%;
-            height: 50px;
-            border: 2px solid #777777;
-            border-radius: 10px;
-            text-align: center;
-            margin: 50px 0;
-            background-color: #ebebeb;
-            font-size: 24px;
-        } */
-
         .keyss{
             width: 60px;
             height: 60px;
@@ -155,16 +136,6 @@
         .keyss:hover {
             background-color: #e41e18;
         }
-
-
-        /* .color-panel {
-            top: 0;
-            right: 0;
-            padding: 10px;
-            background-color: #ffffff;
-            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-        } */
 
         .color-panel {
             top: 0;
@@ -221,7 +192,6 @@
               border: 4px dashed #b91c1c;
               text-size-adjust: 100%;
               font-size: x-large;
-              /* font-family: 'Courier New', Courier, monospace; */
               text-align: center;
               margin-top: 15px;
               margin-bottom: 10px;
@@ -302,26 +272,6 @@
     background-color: #0c5310;
 }
 
-/* border: 4px solid #ff4c24; */
-
-      /*  .input-field {
-            width: 800px;
-            height: 30px;
-            border: 2px solid #000000;
-            border-radius: 10px;
-            padding: 100%;
-            text-align: center;
-        }*/
-
-/*
-        .content{
-            height: 25px;
-            text-align:center;
-            padding-top: 90px;
-            padding-bottom: 50px; 
-           
-        }*/
-
     </style>
 </head>
 <body>
@@ -333,30 +283,14 @@
         <div class="out"></div>
       </main>
 
-    <!-- <div class="content">
-      <input type="text" class="input-field" id="text-input" readonly>
-    </div> -->
-
     <div class="keyboard-container">
-
-          <!-- <textarea class="textarea" id="mytextarea"
-            placeholder="Start typing or click the button to start voice input..."></textarea>
-            <button onclick="toggleVoiceInput()">Voice Input</button> -->
-
-        
-
+      
           <div class="keyboard-container">
             <textarea class="textarea" id="mytextarea" placeholder="Start typing or click the button to start voice input..."></textarea>
             <button class="voice-toggle" onclick="toggleVoiceInput()">Voice Input</button>
-            <!-- <button onclick="toggleVoiceInput()">Voice Input</button> -->
-
           
     <div class="keyboard">
 
-     <!-- <div class="row">
-            <button class="key emoji-btn" onclick="toggleSymbols()">Emoji</button>
-        </div> -->
-    
         <div class="row symbols-row" style="display: none;">
         <button class="key" onclick="playSound(this); typeCharacter('&#10084;')">❤</button>
         <button class="key" onclick="playSound(this); typeCharacter('&#128522;')">😊</button>
