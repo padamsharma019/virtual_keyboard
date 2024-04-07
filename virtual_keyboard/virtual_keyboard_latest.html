@@ -37,6 +37,11 @@
             justify-content: center;
         }
 
+        .letterColor {
+            color: #3b3b3b;
+
+        }
+
         .key {
             width: 60px;
             height: 60px; 
@@ -273,6 +278,7 @@
     background-color: #0c5310;
 }
 
+
 .autocomplete-suggestions {
     background-color: #eeeeee;
     border: 1px solid #ccc;
@@ -362,78 +368,78 @@
         </div>      
        
         <div class="row">
-            <button class="key _1" onclick="playSound(this); typeCharacter('`')">`</button>
-            <button class="key" onclick="playSound(this); typeCharacter('1')">1</button>
-            <button class="key" onclick="playSound(this); typeCharacter('2')">2</button>
-            <button class="key" onclick="playSound(this); typeCharacter('3')">3</button>
-            <button class="key" onclick="playSound(this); typeCharacter('4')">4</button>
-            <button class="key" onclick="playSound(this); typeCharacter('5')">5</button>
-            <button class="key" onclick="playSound(this); typeCharacter('6')">6</button>
-            <button class="key" onclick="playSound(this); typeCharacter('7')">7</button>
-            <button class="key" onclick="playSound(this); typeCharacter('8')">8</button>
-            <button class="key" onclick="playSound(this); typeCharacter('9')">9</button>
-            <button class="key" onclick="playSound(this); typeCharacter('0')">0</button>
-            <button class="key" onclick="playSound(this); typeCharacter('-')">-</button>
-            <button class="key" onclick="playSound(this); typeCharacter('=')">=</button>
-            <button class="key backspace" onclick="playSound(this); typeCharacter('backspace')">back <br> space</button>
+            <button class="key _1 letterColor" onclick="playSound(this); typeCharacter('`')">`</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('1')">1</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('2')">2</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('3')">3</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('4')">4</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('5')">5</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('6')">6</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('7')">7</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('8')">8</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('9')">9</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('0')">0</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('-')">-</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('=')">=</button>
+            <button class="key backspace letterColor" onclick="playSound(this); typeCharacter('backspace')">back <br> space</button>
 
         </div>
         <div class="row">
-            <button class = "key tab" onclick="playSound(this); typeCharacter('')"> tab </button>
-            <button class="key" onclick="playSound(this); typeCharacter('Q')" id="Q">Q</button>
-            <button class="keyss" onclick="playSound(this); typeCharacter('W')" id="W">W</button>
-            <button class="key" onclick="playSound(this); typeCharacter('E')" id="E">E</button>
-            <button class="key" onclick="playSound(this); typeCharacter('R')" id="R">R</button> 
-            <button class="key" onclick="playSound(this); typeCharacter('T')" id="T">T</button>
-            <button class="key" onclick="playSound(this); typeCharacter('Y')" id="Y">Y</button>
-            <button class="key" onclick="playSound(this); typeCharacter('U')" id="U">U</button>
-            <button class="key" onclick="playSound(this); typeCharacter('I')" id="I">I</button>
-            <button class="key" onclick="playSound(this); typeCharacter('O')" id="O">O</button>
-            <button class="key" onclick="playSound(this); typeCharacter('P')" id="P">P</button> 
-            <button class="key" onclick="playSound(this); typeCharacter('&#91')">[</button> 
-            <button class="key" onclick="playSound(this); typeCharacter('&#93')">]</button>
-            <button class="key" onclick="playSound(this); typeCharacter('&#x7C')">|</button>
+            <button class = "key tab letterColor" onclick="playSound(this); typeCharacter('')"> tab </button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('Q')" id="Q">Q</button>
+            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('W')" id="W">W</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('E')" id="E">E</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('R')" id="R">R</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('T')" id="T">T</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('Y')" id="Y">Y</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('U')" id="U">U</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('I')" id="I">I</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('O')" id="O">O</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('P')" id="P">P</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('&#91')">[</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('&#93')">]</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('&#x7C')">|</button>
          
         </div>
         <div class="row">
-            <button class=" key caps" onclick="playSound(this); typeCharacter('caps')">caps</button>
-            <button class="keyss" onclick="playSound(this); typeCharacter('A')" id="A">A</button> 
-            <button class="keyss" onclick="playSound(this); typeCharacter('S')" id="S">S</button> 
-            <button class="keyss" onclick="playSound(this); typeCharacter('D')"id="D">D</button> 
-            <button class="key" onclick="playSound(this); typeCharacter('F')"id="F">F</button> 
-            <button class="key" onclick="playSound(this); typeCharacter('G')" id="G">G</button> 
-            <button class="key" onclick="playSound(this); typeCharacter('H')" id="H">H</button> 
-            <button class="key" onclick="playSound(this); typeCharacter('J')" id="J">J</button> 
-            <button class="key" onclick="playSound(this); typeCharacter('K')" id="K">K</button> 
-            <button class="key" onclick="playSound(this); typeCharacter('L')" id="L">L</button> 
-            <button class="key" onclick="playSound(this); typeCharacter(';')">;</button> 
-            <button class="key" onclick="playSound(this); typeCharacter('&#34')">"</button> 
-            <button class="key caps" onclick="playSound(this); typeCharacter('enter')">enter</button>
+            <button class=" key caps letterColor" onclick="playSound(this); typeCharacter('caps')">caps</button>
+            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('A')" id="A">A</button> 
+            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('S')" id="S">S</button> 
+            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('D')"id="D">D</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('F')"id="F">F</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('G')" id="G">G</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('H')" id="H">H</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('J')" id="J">J</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('K')" id="K">K</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('L')" id="L">L</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter(';')">;</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('&#34')">"</button> 
+            <button class="key caps letterColor" onclick="playSound(this); typeCharacter('enter')">enter</button>
         </div>
             <!-- 3rd row -->
         <div class="row">
-            <button class = "key shift" onclick="playSound(this); typeCharacter('')"> shift </button>
-            <button class="key" onclick="playSound(this); typeCharacter('Z')" id="Z">Z</button> 
-            <button class="key" onclick="playSound(this); typeCharacter('X')" id="X">X</button> 
-            <button class="key" onclick="playSound(this); typeCharacter('C')" id="C">C</button>
-            <button class="key" onclick="playSound(this); typeCharacter('V')" id="V">V</button> 
-            <button class="key" onclick="playSound(this); typeCharacter('B')" id="B">B</button> 
-            <button class="key" onclick="playSound(this); typeCharacter('N')" id="N">N</button>
-            <button class="key" onclick="playSound(this); typeCharacter('M')" id="M">M</button> 
-            <button class="key" onclick="playSound(this); typeCharacter(',')">,</button> 
-            <button class="key" onclick="playSound(this); typeCharacter('.')">.</button>
-            <button class="key" onclick="playSound(this); typeCharacter('&#47')">/</button> 
-            <button class = "key shift" onclick="playSound(this); typeCharacter('')"> shift </button>
+            <button class = "key shift letterColor" onclick="playSound(this); typeCharacter('')"> shift </button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('Z')" id="Z">Z</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('X')" id="X">X</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('C')" id="C">C</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('V')" id="V">V</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('B')" id="B">B</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('N')" id="N">N</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('M')" id="M">M</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter(',')">,</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('.')">.</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('&#47')">/</button> 
+            <button class = "key shift letterColor" onclick="playSound(this); typeCharacter('')"> shift </button>
         </div>
             
         <div class="row">
-            <button class="key kk num" onclick="playSound(this); typeCharacter('toggle')" id="toggle">?123</button>
-            <button class="key kk" onclick="playSound(this); toggleSymbols('emo') ;typeCharacter('emo')" id="emo">^_^</button>
-            <button class="key kk" onclick="playSound(this); typeCharacter('')">alt</button>
-            <button class="key kk space" onclick="playSound(this); typeCharacter('space')"></button>
-            <button class="key kk" onclick="playSound(this); typeCharacter('')">alt</button>
-            <button class="key kk" onclick="playSound(this); typeCharacter('')">ctrl</button>
-            <button  class="key kk e">GIF</button>
+            <button class="key kk num letterColor" onclick="playSound(this); typeCharacter('toggle')" id="toggle">?123</button>
+            <button class="key kk letterColor" onclick="playSound(this); toggleSymbols('emo') ;typeCharacter('emo')" id="emo">^_^</button>
+            <button class="key kk letterColor" onclick="playSound(this); typeCharacter('')">alt</button>
+            <button class="key kk space letterColor" onclick="playSound(this); typeCharacter('space')"></button>
+            <button class="key kk letterColor" onclick="playSound(this); typeCharacter('')">alt</button>
+            <button class="key kk letterColor" onclick="playSound(this); typeCharacter('')">ctrl</button>
+            <button  class="key kk e letterColor">GIF</button>
         </div>
 
         <button id="open-color-panel-btn" class="open-color-panel-btn">Open Color Panel</button>
@@ -445,12 +451,16 @@
     
             <label for="keyColor" class="color-input">Key Color:</label>
             <input type="color" id="keyColor" class="color-input">
+
+            <label for="letterColor" class="color-input">Letter Color:</label>
+            <input type="color" id="letterColor" class="color-input">
     
             <button id="apply-colors">Apply Colors</button>
         </div>
 
         <audio id="keyPressSound" keypress = "auto">
-            <source src="C:\Users\HP\Downloads\KeypressSound1.mp3" type="audio/mp3">
+            <!-- <source src="C:\Users\HP\Downloads\KeypressSound1.mp3" type="audio/mp3"> -->
+            <source src="D:\sem 2 notes\techabhivikti 2.0\virtual_keyboard\KeypressSound1.mp3" type="audio/mp3">
         </audio>  
 
         <script>
@@ -681,6 +691,7 @@ document.addEventListener('keyup', function(event) {
 
 const backgroundColorInput = document.getElementById('backgroundColor');
         const keyColorInput = document.getElementById('keyColor');
+        const letterColorInput = document.getElementById('letterColor');
 
         
         const applyColorsButton = document.getElementById('apply-colors');
@@ -689,11 +700,19 @@ const backgroundColorInput = document.getElementById('backgroundColor');
         function applyColors() {
             const keyboard = document.querySelector('.keyboard');
             const keys = document.querySelectorAll('.key, .k, .keyss');
+            const letterColor = document.querySelectorAll('.letterColor');
+            
 
             keyboard.style.backgroundColor = backgroundColorInput.value;
 
             keys.forEach(key => {
              key.style.backgroundColor = keyColorInput.value;
+            });
+
+            // letterColor.style.color = letterColorInput.value;
+
+            letterColor.forEach(letterColor => {
+             letterColor.style.color = letterColorInput.value;
             });
             
         }
