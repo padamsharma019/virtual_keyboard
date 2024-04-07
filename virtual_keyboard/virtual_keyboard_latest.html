@@ -735,8 +735,6 @@ const backgroundColorInput = document.getElementById('backgroundColor');
             symbolsRow.style.display = (symbolsRow.style.display === 'none') ? 'flex' : 'none';
         }
 
-
-
 // ======================= hover________key ============================================
 
         document.querySelectorAll('button').forEach(key => {
@@ -1010,7 +1008,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 const textarea = document.getElementById('mytextarea');
 
-        const suggestions = ['My', 'Project', 'is', 'Virtual', 'Keyboard'];
+        const suggestions = [
+            'project', 'is', 'virtual', 'keyboard','the', 'be', 'to', 'of', 'and', 'a', 'in', 'that', 'have', 'I', 'it', 'for', 'not', 'on', 'with', 'he', 'as', 'you', 'do', 'at', 'this', 'but', 'his', 'by', 'from', 'they', 'we', 'say', 'her', 'she', 'or', 'an', 'will', 'my', 'one', 'all', 'would', 'there', 'their', 'what', 'so', 'up', 'out', 'if', 'about', 'who', 'get', 'which', 'go', 'me', 'when', 'make', 'can', 'like', 'time', 'no', 'just', 'him', 'know', 'take', 'people', 'into', 'year', 'your', 'good', 'some', 'could', 'them', 'see', 'other', 'than', 'then', 'now', 'look', 'only', 'come', 'its', 'over', 'think', 'also', 'back', 'after', 'use', 'two', 'how', 'our', 'work', 'first', 'well', 'way', 'even', 'new', 'want', 'because', 'any', 'these', 'give', 'day', 'most', 'us'
+    ];
 
         textarea.addEventListener('input', function(event) {
             const inputText = event.target.value;
@@ -1109,6 +1109,17 @@ const textarea = document.getElementById('mytextarea');
                 existingSuggestions.forEach(suggestion => suggestion.remove());
             }
         });
+
+        // Remove suggestions on space key press
+        textarea.addEventListener('keydown', function(event) {
+    if (event.key === ' ') {
+        // Prevent the default behavior of the space key press (e.g., inserting a space)
+        event.preventDefault();
+
+        const existingSuggestions = document.querySelectorAll('.autocomplete-suggestions');
+        existingSuggestions.forEach(suggestion => suggestion.remove());
+    }
+});
 
         </script>
     </div>
