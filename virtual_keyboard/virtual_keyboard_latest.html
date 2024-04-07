@@ -160,6 +160,7 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            transition: 0.25s;
         }
 
         .color-panel-toggle:hover {
@@ -193,7 +194,7 @@
               width: 980px;
               height: 35px;
               padding: 10px;
-              border: 4px solid black;
+              border: 2px solid black;
               border-radius: 5px;
               text-size-adjust: 100%;
               font-size: x-large;
@@ -218,6 +219,7 @@
             margin-bottom: 5px;
             margin-top: 3px;
             outline: none;
+            transition: 0.25s;
             }
 
         button.voice-toggle:hover {
@@ -324,6 +326,63 @@
     background-color: #dad4d4;
 }
 
+.stopwatch-container {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stopwatch {
+  background-color:#ebebeb; /* Semi-transparent white background */
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 1px 25px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  font-size: 24px;
+  color: #000000; /* Dark text color */
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px; /* Add some spacing between stopwatch and buttons */
+}
+
+.buttons-container button {
+  margin-left: 5px;
+  font-size: 20px;
+  background-color: #4caf50; /* Green background color */
+  color: #fff; /* White text color */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.buttons-container button:hover {
+  background-color: #388e3c; /* Darker green on hover */
+}
+
+.kyu {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        left: 20px;
+        right: auto;
+        transition: 0.25s;
+    }
+
     </style>
 </head>
 <body>
@@ -340,6 +399,17 @@
           <div class="keyboard-container">
             <textarea class="textarea" id="mytextarea" placeholder="Start typing or click the button to start voice input..."></textarea>
             <button class="voice-toggle" onclick="toggleVoiceInput()">Voice Input</button>
+
+              <div class="stopwatch-container">
+                <div id="stopwatch" class="stopwatch">00:00:00</div>
+                <div class="buttons-container">
+                  <button onclick="startStopwatch()">&#9654;</button>
+                  <button onclick="stopStopwatch()">&#9724;</button>
+                  <button onclick="resetStopwatch()">&#8634;</button>
+                </div>
+              </div>
+              
+
 
     <div class="keyboard">
 
@@ -440,6 +510,8 @@
             <button class="key kk letterColor" onclick="playSound(this); typeCharacter('')">ctrl</button>
             <button  class="key kk e letterColor">GIF</button>
         </div>
+
+        <button class="kyu" onclick="playSound(this); toggleStopwatch()">Stopwatch</button>
 
         <button id="open-color-panel-btn" class="open-color-panel-btn">Open Color Panel</button>
          
@@ -1120,6 +1192,78 @@ const textarea = document.getElementById('mytextarea');
     }
 });
 
+// Get the stopwatch element
+const stopwatchElement = document.getElementById('stopwatch');
+
+// Variables to store stopwatch state
+let startTime = 0;
+let elapsedTime = 0;
+let isRunning = false;
+
+// Function to start the stopwatch
+function startStopwatch() {
+  if (!isRunning) {
+    isRunning = true;
+    startTime = Date.now() - elapsedTime;
+    updateStopwatch();
+  }
+}
+
+// Function to stop the stopwatch
+function stopStopwatch() {
+  if (isRunning) {
+    isRunning = false;
+    elapsedTime = Date.now() - startTime;
+  }
+}
+
+// Function to reset the stopwatch
+function resetStopwatch() {
+  isRunning = false;
+  startTime = 0;
+  elapsedTime = 0;
+  updateStopwatch();
+}
+
+// Function to update the stopwatch display
+function updateStopwatch() {
+  const currentTime = Date.now();
+  elapsedTime = isRunning ? currentTime - startTime : elapsedTime;
+  const seconds = Math.floor(elapsedTime / 1000) % 60;
+  const minutes = Math.floor(elapsedTime / 1000 / 60) % 60;
+  const hours = Math.floor(elapsedTime / 1000 / 60 / 60);
+  stopwatchElement.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+}
+
+// Update the stopwatch every 100 milliseconds
+setInterval(updateStopwatch, 100);
+
+// Toggle the stopwatch display
+function toggleStopwatch() {
+    const stopwatchContainer = document.querySelector('.stopwatch-container');
+    stopwatchContainer.style.display = stopwatchContainer.style.display === 'none' ? 'block' : 'none';
+}
+
+//initially hide the stopwatch
+toggleStopwatch();
+
+// Get the button element
+const kyuButton = document.querySelector('.kyu');
+
+// Get the stopwatch container
+const stopwatchContainer = document.querySelector('.stopwatch-container');
+
+// Event listener for the button
+kyuButton.addEventListener('click', function() {
+  // Toggle the visibility of the stopwatch container
+  stopwatchContainer.classList.toggle('visible');
+  
+  // Center the stopwatch container horizontally
+  if (stopwatchContainer.classList.contains('visible')) {
+    stopwatchContainer.style.left = '50%';
+    stopwatchContainer.style.transform = 'translateX(-50%)';
+  }
+});
         </script>
     </div>
 </body>
