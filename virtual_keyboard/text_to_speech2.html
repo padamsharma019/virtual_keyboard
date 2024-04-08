@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Speech-to-Text</title>
+    <title> Speech-to-Text </title>
 </head>
 <body>
-    <h1>Speech-to-Text Converter</h1>
+    <h1>Speech-to- Text Converter</h1>
     <button id="startButton">Start Recording</button>
     <div id="output"></div>
     <script>
@@ -40,7 +40,7 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
     };
 
     recognition.onerror = (event) => {
-        console.error('Speech recognition error:', event.error);
+        console.error('Speech recognition  error:', event.error);
     };
 } else {
     outputDiv.textContent = 'Speech recognition is not supported in this browser.';
