@@ -398,7 +398,7 @@
       
           <div class="keyboard-container">
             <textarea class="textarea" id="mytextarea" placeholder="Start typing or click the button to start voice input..."></textarea>
-            <button class="voice-toggle" onclick="toggleVoiceInput()">Voice Input</button>
+            <button class="voice-toggle" onclick="toggleVoiceInput()">Voice Input</button>            
 
               <div class="stopwatch-container">
                 <div id="stopwatch" class="stopwatch">00:00:00</div>
@@ -408,9 +408,7 @@
                   <button onclick="resetStopwatch()">&#8634;</button>
                 </div>
               </div>
-              
-
-
+            </div>
     <div class="keyboard">
 
         <div class="row symbols-row" style="display: none;">
@@ -530,10 +528,12 @@
         </div>
 
         <audio id="keyPressSound" keypress = "auto">
-            <!-- <source src="C:\Users\HP\Downloads\KeypressSound1.mp3" type="audio/mp3"> -->
-            <source src="D:\sem 2 notes\techabhivikti 2.0\virtual_keyboard\KeypressSound1.mp3" type="audio/mp3">
+            <source src="C:\Users\HP\Downloads\KeypressSound1.mp3" type="audio/mp3">
+            <!-- <source src="D:\sem 2 notes\techabhivikti 2.0\virtual_keyboard\KeypressSound1.mp3" type="audio/mp3"> -->
         </audio>  
-
+        
+        <input onclick="speakFromTextarea();" type="button" value="🔊 Play" />
+        
         <script>
              function playSound(button) {
     const audio = document.getElementById('keyPressSound');
@@ -1264,7 +1264,28 @@ kyuButton.addEventListener('click', function() {
     stopwatchContainer.style.transform = 'translateX(-50%)';
   }
 });
+
+// Init text to speech
+
+
+// function readText() {
+//   const textInput = document.getElementById('textInput').value;
+  
+//   if ('speechSynthesis' in window) {
+//     const utterance = new SpeechSynthesisUtterance(textInput);
+//     speechSynthesis.speak(utterance);
+//   } else {
+//     alert('Text-to-speech is not supported in this browser.');
+//   }
+// }
+
+function speakFromTextarea() {
+            const textToSpeak = document.getElementById("myTextarea").value;
+            responsiveVoice.speak(textToSpeak);
+          }
         </script>
     </div>
+    
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=zj5kBtxl"></script>
 </body>
 </html>
