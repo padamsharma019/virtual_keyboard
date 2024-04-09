@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emoji Picker</title>
+    <!-- Include Emoji Button CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/emoji-button@3.0.0/dist/emoji-button.css">
+</head>
+<body>
+    <button id="emojiButton">Pick an Emoji</button>
+    <textarea id="emojiTextarea"></textarea>
+
+    <!-- Include Emoji Button JS -->
+    <script src="https://cdn.jsdelivr.net/npm/emoji-button@3.0.0/dist/emoji-button.js"></script>
+    <script>
+        // Initialize the emoji picker
+        const picker = new EmojiButton();
+
+        // Get the textarea element
+        const textarea = document.getElementById('emojiTextarea');
+
+        // Attach the picker to the button
+        const button = document.getElementById('emojiButton');
+        button.addEventListener('click', () => {
+            picker.togglePicker(button);
+        });
+
+        // Handle emoji selection
+        picker.on('emoji', (emoji) => {
+            // Insert the selected emoji into the textarea
+            textarea.value += emoji;
+        });
+    </script>
+</body>
+</html>

@@ -5,10 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="icon"
+    href="C:\Users\HP\Downloads\Fevicon[1].jpeg">
+
     <style>
 
         .body{
             font-family: Arial, sans-serif;
+          /*  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWyz98YznOygytpgtzTgTp5ajyi6MKe059-Q&usqp=CAU');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;  */
             background-color: #f0f0f0;
             display: flex;
             justify-content: center;
@@ -29,7 +37,7 @@
             background-color: #eeeeee;
             border: 1px solid #ccc;
             border-radius: 5px;
-            padding: 30px;
+            padding: 40px;
         }
 
         .row {
@@ -67,7 +75,7 @@
 
         .num{
             width: 150px;
-            background-color: #ff5733;
+            background-color: #f9716c;
         }
 
         .k:hover{
@@ -111,14 +119,25 @@
 
         ._1 {
             width: 30px;
-            background-color: #ff5733;            /* ff5733 */
+            background-color: #ff5733;
             border: #ff5733;
         }
 
         .backspace {
             width: 90px;
-            background-color: #ff5733;             /* ff5733 */
+            background-color: #ff5733;
             border: #ff5733;
+        }
+
+        .text-field {
+            width: 65%;
+            height: 50px;
+            border: 2px solid #777777;
+            border-radius: 10px;
+            text-align: center;
+            margin: 50px 0;
+            background-color: #ebebeb;
+            font-size: 24px;
         }
 
         .keyss{
@@ -137,6 +156,7 @@
             background-color: #e41e18;
         }
 
+
         .color-panel {
             top: 0;
             right: 0;
@@ -144,22 +164,6 @@
             background-color: #ffffff;
             box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
             z-index: 1000;
-        }
-
-        .open-color-panel-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #4caf50;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .color-panel-toggle:hover {
-            background-color: #0c5310;
         }
 
         .color-input {
@@ -185,159 +189,64 @@
             width: 140px ;
         }
 
-        .textarea {
-              width: 980px;
-              height: 35px;
-              padding: 10px;
-              border: 4px solid black;
-              border-radius: 5px;
-              text-size-adjust: 100%;
-              font-size: x-large;
-              text-align: center;
-              margin-top: 15px;
-              margin-bottom: 10px;
-              /* margin: 10px 0; */
-              background-color: #ebebeb;
-              border-radius: 5px;
-            }
+/* border: 4px solid #ff4c24; */
 
-        .border-indigo{ border-color: #4238ca; }
+      /*  .input-field {
+            width: 800px;
+            height: 30px;
+            border: 2px solid #000000;
+            border-radius: 10px;
+            padding: 100%;
+            text-align: center;
+        }*/
 
-        button.voice-toggle {
-            padding: 10px 35px;
-            background-color: #4CAF50;
-            color: white;
-            border: 1px solid #000;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.1s;
-            margin-bottom: 5px;
-            margin-top: 3px;
-            outline: none;
-            }
-
-        button.voice-toggle:hover {
-            background-color: #0c5310;
-        }
-
-        html {
-        font-size: 20px;
-        line-height: 1.6;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-      }
-      form * {
-        font-family: inherit;
-        font-size: inherit;
-      }
-      img {
-        width: 20%;
-        max-width: 20%;
-      }
-
-.search-form {
-    display: none;
-    align-items: center;
-    margin: 0 auto; 
-    max-width: 300px;
-}
-
-.search-form input[type="search"] {
-    height: 30px;
-    width: 220px;
-    padding: 1px 1px;
-    border: 1px solid #000;
-    border-radius: 5px;
-    background-color: #f0f0f0;
-    font-size: 16px;
-    outline: none;
-    margin: 0 10px;
-}
-
-.search-form button {
-    height: 30px;
-    width: 40px;
-    padding: 1px 1px;
-    border: 1px solid #000;
-    border-radius: 5px;
-    background-color: #4caf50;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    outline: none;
-    margin-top: 25px;
-    margin-bottom: 10px;
-}
-
-.search-form button:hover {
-    background-color: #0c5310;
-}
-
-.autocomplete-suggestions {
-    background-color: #eeeeee;
-    border: 1px solid #ccc;
-    border-top: none;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    position: absolute;
-    z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-}
-
-.autocomplete-suggestions {
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    border-top: none;
-    list-style: none;
-    padding: 5px 0;
-    margin: 0;
-    position: absolute;
-    z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.autocomplete-suggestion {
-    padding: 3px 15px;
-    margin: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    color: #000000;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-    /* border: 1px solid #ffffff; */
-}
-
-.autocomplete-suggestion:hover {
-    background-color: #dad4d4;
-}
+/*
+        .content{
+            height: 25px;
+            text-align:center;
+            padding-top: 90px;
+            padding-bottom: 50px; 
+           
+        }*/
 
     </style>
 </head>
 <body>
-    <main>
-        <form class="search-form" id="searchForm">
-            <input id="search" type="search" class="key" placeholder="Search">
-            <button id="btnSearch" class="key">Go</button>
-        </form>
-        <div class="out"></div>
-      </main>
+
+
+    <!-- <div class="content">
+      <input type="text" class="input-field" id="text-input" readonly>
+    </div> -->
 
     <div class="keyboard-container">
-      
-          <div class="keyboard-container">
-            <textarea class="textarea" id="mytextarea" placeholder="Start typing or click the button to start voice input..."></textarea>
-            <button class="voice-toggle" onclick="toggleVoiceInput()">Voice Input</button>
+        
+        <style>
+            .textarea {
+              width: 700px;
+              height: 50px;
+              padding: 10px;
+              border: 4px dashed #b91c1c;
+              text-size-adjust: auto;
+              font-size: x-large;
+            }
+            .border-indigo{ border-color: #4238ca; }
+          </style>
+          
+          <textarea class="textarea" id="mytextarea"
+                    placeholder="Enter your message here..."></textarea>
+          
+          <br />
+          
+       
+    </div>
+        
 
     <div class="keyboard">
 
+     <!--   <div class="row">
+            <button class="key emoji-btn" onclick="toggleSymbols()">Emoji</button>
+        </div>    -->
+    
         <div class="row symbols-row" style="display: none;">
         <button class="key" onclick="playSound(this); typeCharacter('&#10084;')">❤</button>
         <button class="key" onclick="playSound(this); typeCharacter('&#128522;')">😊</button>
@@ -359,8 +268,14 @@
         <button class="key" onclick="playSound(this); typeCharacter('&#128528;')">😐</button>
         <button class="key" onclick="playSound(this); typeCharacter('&#128545;')">😠</button>
         <button class="key" onclick="playSound(this); typeCharacter('&#127881;')">🎉</button>
-        </div>      
+        </div>
+      <!--  <div class="row">
+            <button class="key gifButton" onclick="gifs()">Gif</button>
+
+        </div>   -->
+        
        
+
         <div class="row">
             <button class="key _1" onclick="playSound(this); typeCharacter('`')">`</button>
             <button class="key" onclick="playSound(this); typeCharacter('1')">1</button>
@@ -394,6 +309,8 @@
             <button class="key" onclick="playSound(this); typeCharacter('&#93')">]</button>
             <button class="key" onclick="playSound(this); typeCharacter('&#x7C')">|</button>
          
+            
+           
         </div>
         <div class="row">
             <button class=" key caps" onclick="playSound(this); typeCharacter('caps')">caps</button>
@@ -427,36 +344,33 @@
         </div>
             
         <div class="row">
-            <button class="key kk num" onclick="playSound(this); typeCharacter('toggle')" id="toggle">?123</button>
-            <button class="key kk" onclick="playSound(this); toggleSymbols('emo') ;typeCharacter('emo')" id="emo">^_^</button>
-            <button class="key kk" onclick="playSound(this); typeCharacter('')">alt</button>
-            <button class="key kk space" onclick="playSound(this); typeCharacter('space')"></button>
-            <button class="key kk" onclick="playSound(this); typeCharacter('')">alt</button>
-            <button class="key kk" onclick="playSound(this); typeCharacter('')">ctrl</button>
-            <button  class="key kk e">GIF</button>
+            <button class="kk num" onclick="playSound(this); typeCharacter('toggle')" id="toggle">toggle</button>
+            <!-- <button class="k" onclick="playSound(this); typeCharacter('')">fn</button> -->
+            <button class="kk" onclick="playSound(this); toggleSymbols('emo') ;typeCharacter('emo')" id="emo">emo</button>
+            <button class="kk" onclick="playSound(this); typeCharacter('')">alt</button>
+            <button class="kk space" onclick="playSound(this); typeCharacter('space')"></button>
+            <button class="kk" onclick="playSound(this); typeCharacter('')">alt</button>
+            <button class="kk" onclick="playSound(this); typeCharacter('')">ctrl</button>
+            <button class="kk e" onclick="playSound(this); window.open('https:/tenor.com/', '_blank') ">GIF</button>
         </div>
-
-        <button id="open-color-panel-btn" class="open-color-panel-btn">Open Color Panel</button>
          
-        <div  class="color-panel" id = "color-panel" style="display: none;">
+         
+        <div class="color-panel">
             <h3>Keyboard Color Settings</h3>
             <label for="backgroundColor" class="color-input">Background Color:</label>
             <input type="color" id="backgroundColor" class="color-input">
     
             <label for="keyColor" class="color-input">Key Color:</label>
             <input type="color" id="keyColor" class="color-input">
-
-            <div class="keyboard-size">
-                <label for="keyboard-size-input">Keyboard Size:</label>
-                <input type="range" id="keyboard-size-input" min="50" max="200" value="100">
-            </div>
     
             <button id="apply-colors">Apply Colors</button>
         </div>
 
         <audio id="keyPressSound" keypress = "auto">
-            <source src="C:\Users\HP\Downloads\KeypressSound1.mp3" type="audio/mp3">
-        </audio>  
+            <source src="d:\sem 2 notes\tech_abhiviakti\KeypressSound1.mp3" type="audio/mp3">
+        </audio>
+    
+
 
         <script>
              function playSound(button) {
@@ -703,15 +617,6 @@ const backgroundColorInput = document.getElementById('backgroundColor');
             
         }
 
-        const colorPanel = document.getElementById('color-panel');
-        const openColorPanelBtn = document.getElementById('open-color-panel-btn');
-
-        openColorPanelBtn.addEventListener('click', function() {
-            colorPanel.style.display = colorPanel.style.display === 'block' ? 'none' : 'block';
-        });
-
-
-
         function toggleSymbols() {
             const symbolsRow = document.querySelector('.symbols-row');
             symbolsRow.style.display = (symbolsRow.style.display === 'none') ? 'flex' : 'none';
@@ -721,25 +626,30 @@ const backgroundColorInput = document.getElementById('backgroundColor');
             symbolsRow.style.display = (symbolsRow.style.display === 'none') ? 'flex' : 'none';
         }
 
-// ======================= hover________key ============================================
+
+
+        // =======================hover------key============================================
 
         document.querySelectorAll('button').forEach(key => {
     key.addEventListener('mouseover', () => {
-        key.style.transform = 'translateY(-10px)';
+        key.style.transform = 'translateY(-10px)'; // Move the key up by 10 pixels
     });
 
     key.addEventListener('mouseout', () => {
-        key.style.transform = 'translateY(0)';
+        key.style.transform = 'translateY(0)'; // Move the key back to its original position
     });
 });
 
-// ========================= numerical _____ tab ============================
+        
+//=======================numerical _______________ tab============================
 const button1 = document.getElementById('A');
 const Q = document.getElementById('Q');
         const button2 = document.getElementById('toggle');
 
+        // Initial state: button1 is "a"
         let button1Name = 'A';
 
+        // Function to handle button2 click
         function toggleButton() {
             if (button1Name === 'A') {
                 button1Name = '@';
@@ -803,15 +713,18 @@ const Q = document.getElementById('Q');
             }
         }
 
+        // Attach click event to button2
         button2.addEventListener('click', toggleButton);
-
+//====================================emo button============================================
 
         const buttonP = document.getElementById('Q');
         const W = document.getElementById('W');
         const buttonR = document.getElementById('emo');
 
+        // Initial state: button1 is "a"
         let buttonPName = 'Q';
 
+        // Function to handle button2 click
         function emoButton() {
             if (buttonPName === 'Q') {
                 buttonPName = 'emo';
@@ -857,7 +770,6 @@ const Q = document.getElementById('Q');
                 I.textContent = 'I';
                 O.textContent = 'O';
                 P.textContent = 'P';
-                A.textContent = 'A';
                 S.textContent = 'S';
                 D.textContent = 'D';
                 F.textContent = 'F';
@@ -877,237 +789,27 @@ const Q = document.getElementById('Q');
             }
         }
 
+        // Attach click event to button2
         buttonR.addEventListener('click', emoButton);
 
-// voice to text code here
-let isVoiceInput = false;
 
-function toggleVoiceInput() {
-    const button = document.querySelector('button');
-    const textInput = document.getElementById('mytextarea');
 
-    isVoiceInput = !isVoiceInput;
-
-    if (isVoiceInput) {
-        button.textContent = 'Toggle Typing';
-        startVoiceInput(textInput);
-    } else {
-        button.textContent = 'Voice Input';
-        stopVoiceInput();
-    }
-}
-
-function startVoiceInput(textInput) {
-    const recognition = new webkitSpeechRecognition();
-    recognition.lang = 'en-US';
-
-    recognition.onresult = function(event) {
-        const transcript = event.results[0][0].transcript;
-        textInput.value += transcript;
-    };
-
-    recognition.start();
-}
-
-function stopVoiceInput() {
-}
-// code for api 
-
-let APIKEY = "OYeBl3shtyfZsVn6EFI9XCyvgFmTE0Xo";
-      document.addEventListener("DOMContentLoaded", init);
-      
-      function init() {
-    document.getElementById("btnSearch").addEventListener("click", ev => {
-        ev.preventDefault();
-        let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=1&q=`;
-        let str = document.getElementById("search").value.trim();
-        url = url.concat(str);
-        console.log(url);
-        fetch(url)
-            .then(response => response.json())
-            .then(content => {
-                console.log(content.data);
-                console.log("META", content.meta);
-
-                const previousGif = document.querySelector(".out figure");
-                if (previousGif) {
-                    previousGif.remove();
-                }
-
-                let fig = document.createElement("figure");
-                fig.style.display = "flex";
-                fig.style.justifyContent = "center";
-                fig.style.alignItems = "center";
-
-                let img = document.createElement("img");
-                img.src = content.data[0].images.downsized.url;
-                img.alt = content.data[0].title;
-                fig.appendChild(img);
-                let out = document.querySelector(".out");
-                out.insertAdjacentElement("afterbegin", fig);
-                document.querySelector("#search").value = "";
-            })
-            .catch(err => {
-                console.error(err);
-            });
-    });
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-    const gifButton = document.querySelector('.e');
-    const searchForm = document.getElementById('searchForm');
-    gifButton.addEventListener('click', function() {
-        if (searchForm.style.display === 'none' || searchForm.style.display === '') {
-            searchForm.style.display = 'block'; 
-        } else {
-            searchForm.style.display = 'none'; 
-        }
-    });
-});
-
-//prediction code
-
-// const input = document.getElementById('textInput');
-// const suggestionsList = document.getElementById('suggestions');
-// const wordPredictions = ['apple', 'banana', 'orange', 'pear', 'grape'];
-
-// function predictWords(input) {
-//     const inputLowerCase = input.toLowerCase();
-//     const predictions = wordPredictions.filter(word => word.startsWith(inputLowerCase));
-//     return predictions;
-// }
-
-// function updateSuggestions() {
-//     const inputText = input.value;
-//     const suggestions = predictWords(inputText);
     
-//     suggestionsList.innerHTML = '';
-//     suggestions.forEach(suggestion => {
-//         const li = document.createElement('li');
-//         li.textContent = suggestion;
-//         suggestionsList.appendChild(li);
-//     });
-// }
-
-// // Event listener for input changes
-// input.addEventListener('input', updateSuggestions);
-
-const textarea = document.getElementById('mytextarea');
-
-        const suggestions = [
-            'project', 'is', 'virtual', 'keyboard','the', 'be', 'to', 'of', 'and', 'a', 'in', 'that', 'have', 'I', 'it', 'for', 'not', 'on', 'with', 'he', 'as', 'you', 'do', 'at', 'this', 'but', 'his', 'by', 'from', 'they', 'we', 'say', 'her', 'she', 'or', 'an', 'will', 'my', 'one', 'all', 'would', 'there', 'their', 'what', 'so', 'up', 'out', 'if', 'about', 'who', 'get', 'which', 'go', 'me', 'when', 'make', 'can', 'like', 'time', 'no', 'just', 'him', 'know', 'take', 'people', 'into', 'year', 'your', 'good', 'some', 'could', 'them', 'see', 'other', 'than', 'then', 'now', 'look', 'only', 'come', 'its', 'over', 'think', 'also', 'back', 'after', 'use', 'two', 'how', 'our', 'work', 'first', 'well', 'way', 'even', 'new', 'want', 'because', 'any', 'these', 'give', 'day', 'most', 'us'
-    ];
-
-        textarea.addEventListener('input', function(event) {
-            const inputText = event.target.value;
-            const cursorPosition = textarea.selectionStart;
-
-            const lastWord = inputText.substring(0, cursorPosition).split(/\s+/).pop();
-            const matchingSuggestions = suggestions.filter(suggestion =>
-                suggestion.toLowerCase().startsWith(lastWord.toLowerCase())
-            );
-
-            if (matchingSuggestions.length > 0) {
-                const suggestionList = document.createElement('ul');
-                suggestionList.classList.add('autocomplete-suggestions');
-
-                matchingSuggestions.forEach(suggestion => {
-                    const listItem = document.createElement('li');
-                    listItem.classList.add('autocomplete-suggestion');
-                    listItem.textContent = suggestion;
-
-                    listItem.addEventListener('click', function() {
-                        const textBeforeCursor = inputText.substring(0, cursorPosition - lastWord.length);
-                        const textAfterCursor = inputText.substring(cursorPosition);
-                        const completedText = textBeforeCursor + suggestion + ' ' + textAfterCursor;
-
-                        textarea.value = completedText;
-                        textarea.dispatchEvent(new Event('input'));
-                    });
-
-                    suggestionList.appendChild(listItem);
-                });
-
-                // Position the suggestions below the textarea
-                suggestionList.style.top = textarea.offsetTop + textarea.offsetHeight + 'px';
-                suggestionList.style.left = textarea.offsetLeft + 'px';
-
-                // Remove existing suggestions if any
-                const existingSuggestions = document.querySelectorAll('.autocomplete-suggestions');
-                existingSuggestions.forEach(suggestion => suggestion.remove());
-
-                // Append new suggestions
-                document.body.appendChild(suggestionList);
-            } else {
-                // Remove suggestions if no matches
-                const existingSuggestions = document.querySelectorAll('.autocomplete-suggestions');
-                existingSuggestions.forEach(suggestion => suggestion.remove());
-            }
-        });
-
-        // append suggestions only on matching first letter of the word
-        textarea.addEventListener('keydown', function(event) {
-            if (event.key === ' ') {
-                const cursorPosition = textarea.selectionStart;
-                const inputText = textarea.value;
-                const lastWord = inputText.substring(0, cursorPosition).split(/\s+/).pop();
-                const matchingSuggestions = suggestions.filter(suggestion =>
-                    suggestion.toLowerCase().startsWith(lastWord.toLowerCase())
-                );
-
-                if (matchingSuggestions.length === 1) {
-                    const textBeforeCursor = inputText.substring(0, cursorPosition - lastWord.length);
-                    const textAfterCursor = inputText.substring(cursorPosition);
-                    const completedText = textBeforeCursor + matchingSuggestions[0] + ' ' + textAfterCursor;
-
-                    textarea.value = completedText;
-                    textarea.dispatchEvent(new Event('input'));
-                }
-            }
-        });
-
-        // Remove suggestions when the textarea is empty
-        textarea.addEventListener('input', function(event) {
-            if (event.target.value === '') {
-                const existingSuggestions = document.querySelectorAll('.autocomplete-suggestions');
-                existingSuggestions.forEach(suggestion => suggestion.remove());
-            }
-        });
-
-        // Remove suggestions on click outside the textarea
-        document.addEventListener('click', function(event) {
-            if (!textarea.contains(event.target)) {
-                const existingSuggestions = document.querySelectorAll('.autocomplete-suggestions');
-                existingSuggestions.forEach(suggestion => suggestion.remove());
-            }
-        });
-
-        // Remove suggestions on scroll
-        document.addEventListener('scroll', function() {
-            const existingSuggestions = document.querySelectorAll('.autocomplete-suggestions');
-            existingSuggestions.forEach(suggestion => suggestion.remove());
-        });
-
-        // Remove suggestions on ESC key press
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                const existingSuggestions = document.querySelectorAll('.autocomplete-suggestions');
-                existingSuggestions.forEach(suggestion => suggestion.remove());
-            }
-        });
-
-        // Remove suggestions on space key press
-        textarea.addEventListener('keydown', function(event) {
-    if (event.key === ' ') {
-        // Prevent the default behavior of the space key press (e.g., inserting a space)
-        event.preventDefault();
-
-        const existingSuggestions = document.querySelectorAll('.autocomplete-suggestions');
-        existingSuggestions.forEach(suggestion => suggestion.remove());
-    }
-});
 
         </script>
+
+
+<!--
+    1 vast emoji section -----done
+    2 Gif showing section ----done
+    3 personalize colour -----done
+    4 real time preview of customization
+    5 hover key-------done
+    6 custom click sound
+    7 text prediction and spelling correction
+    8 voice to text
+    9 multilanguage keyboard
+-->        
     </div>
 </body>
 </html>

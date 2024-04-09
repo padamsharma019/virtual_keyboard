@@ -5,18 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- <link rel="icon" -->
-    <!-- href="C:\Users\HP\Downloads\Fevicon[1].jpeg"> -->
-
     <style>
 
         .body{
             font-family: Arial, sans-serif;
-          /*  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWyz98YznOygytpgtzTgTp5ajyi6MKe059-Q&usqp=CAU');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;  */
             background-color: #f0f0f0;
             display: flex;
             justify-content: center;
@@ -45,28 +37,48 @@
             justify-content: center;
         }
 
+        .letterColor {
+            color: #0e0e0e;
+
+        }
+
         .key {
             width: 60px;
             height: 60px; 
-            margin: 5px;
+            margin: 2px;
             border: 1px solid #000000;
             border-radius: 10px; 
             font-size: 24px; 
             text-align: center;
             cursor: pointer;;
             background-color: #fbcfae;
+            transition: transform 0.1s;
         }
 
         .kk {
             width: 70px;
             height: 60px;
-            margin: 5px;
+            margin: 2px;
             border: 1px solid #000000;
             border-radius: 10px; 
             font-size: 24px; 
             text-align: center;
             cursor: pointer;
             background-color: #ff5733;
+            transition: transform 0.1s;
+        }
+
+        .keyss{
+            width: 60px;
+            height: 60px;
+            margin: 2px;
+            border-radius: 10px;
+            border:3px solid #fd0000; 
+            font-size: 24px;
+            text-align: center;
+            cursor: pointer;
+            background-color: #ffb378;
+            transition: transform 0.1s;
         }
 
         .key:hover {
@@ -98,7 +110,6 @@
         .caps {
             width: 95px;
             background-color: #ff5733;
-            border: #ff5733;
         }
 
         .caps-lock-indicator {
@@ -112,67 +123,29 @@
 
 
         .shift {
-            width: 130px;
+            width: 128px;
             background-color: #ff5733;
-            border: #ff5733;
         }
 
         ._1 {
             width: 30px;
             background-color: #ff5733;            /* ff5733 */
-            border: #ff5733;
         }
 
         .backspace {
             width: 90px;
             background-color: #ff5733;             /* ff5733 */
-            border: #ff5733;
-        }
-
-        /* .text-field {
-            width: 65%;
-            height: 50px;
-            border: 2px solid #777777;
-            border-radius: 10px;
-            text-align: center;
-            margin: 50px 0;
-            background-color: #ebebeb;
-            font-size: 24px;
-        } */
-
-        .keyss{
-            width: 60px;
-            height: 60px;
-            margin: 5px;
-            border-radius: 10px;
-            border:3px solid #fd0000; 
-            font-size: 24px;
-            text-align: center;
-            cursor: pointer;
-            background-color: #ffb378;
         }
 
         .keyss:hover {
             background-color: #e41e18;
         }
 
-
-        /* .color-panel {
+        .color-panel {
             top: 0;
             right: 0;
             padding: 10px;
             background-color: #ffffff;
-            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-        } */
-
-        .color-panel {
-            display: none;
-            position: absolute;
-            top: 0;
-            right: 0;
-            padding: 10px;
-            background-color: #e6dbdb;
             box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
             z-index: 1000;
         }
@@ -187,6 +160,7 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            transition: 0.25s;
         }
 
         .color-panel-toggle:hover {
@@ -213,17 +187,17 @@
         }
 
         .e {
-            width: 140px ;
+            width: 115px ;
         }
 
         .textarea {
               width: 980px;
-              height: 25px;
+              height: 35px;
               padding: 10px;
-              border: 4px dashed #b91c1c;
+              border: 2px solid black;
+              border-radius: 5px;
               text-size-adjust: 100%;
               font-size: x-large;
-              /* font-family: 'Courier New', Courier, monospace; */
               text-align: center;
               margin-top: 15px;
               margin-bottom: 10px;
@@ -245,6 +219,7 @@
             margin-bottom: 5px;
             margin-top: 3px;
             outline: none;
+            transition: 0.25s;
             }
 
         button.voice-toggle:hover {
@@ -304,25 +279,109 @@
     background-color: #0c5310;
 }
 
-/* border: 4px solid #ff4c24; */
 
-      /*  .input-field {
-            width: 800px;
-            height: 30px;
-            border: 2px solid #000000;
-            border-radius: 10px;
-            padding: 100%;
-            text-align: center;
-        }*/
+.autocomplete-suggestions {
+    background-color: #eeeeee;
+    border: 1px solid #ccc;
+    border-top: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
 
-/*
-        .content{
-            height: 25px;
-            text-align:center;
-            padding-top: 90px;
-            padding-bottom: 50px; 
-           
-        }*/
+.autocomplete-suggestions {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-top: none;
+    list-style: none;
+    padding: 5px 0;
+    margin: 0;
+    position: absolute;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.autocomplete-suggestion {
+    padding: 3px 15px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #000000;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    /* border: 1px solid #ffffff; */
+}
+
+.autocomplete-suggestion:hover {
+    background-color: #dad4d4;
+}
+
+.stopwatch-container {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stopwatch {
+  background-color:#ebebeb; /* Semi-transparent white background */
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 1px 25px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  font-size: 24px;
+  color: #000000; /* Dark text color */
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px; /* Add some spacing between stopwatch and buttons */
+}
+
+.buttons-container button {
+  margin-left: 5px;
+  font-size: 20px;
+  background-color: #4caf50; /* Green background color */
+  color: #fff; /* White text color */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.buttons-container button:hover {
+  background-color: #388e3c; /* Darker green on hover */
+}
+
+.kyu {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        left: 20px;
+        right: auto;
+        transition: 0.25s;
+    }
 
     </style>
 </head>
@@ -335,30 +394,23 @@
         <div class="out"></div>
       </main>
 
-    <!-- <div class="content">
-      <input type="text" class="input-field" id="text-input" readonly>
-    </div> -->
-
     <div class="keyboard-container">
-
-          <!-- <textarea class="textarea" id="mytextarea"
-            placeholder="Start typing or click the button to start voice input..."></textarea>
-            <button onclick="toggleVoiceInput()">Voice Input</button> -->
-
-        
-
+      
           <div class="keyboard-container">
             <textarea class="textarea" id="mytextarea" placeholder="Start typing or click the button to start voice input..."></textarea>
-            <button class="voice-toggle" onclick="toggleVoiceInput()">Voice Input</button>
-            <!-- <button onclick="toggleVoiceInput()">Voice Input</button> -->
+            <button class="voice-toggle" onclick="toggleVoiceInput()">Voice Input</button>            
 
-          
+              <div class="stopwatch-container">
+                <div id="stopwatch" class="stopwatch">00:00:00</div>
+                <div class="buttons-container">
+                  <button onclick="startStopwatch()">&#9654;</button>
+                  <button onclick="stopStopwatch()">&#9724;</button>
+                  <button onclick="resetStopwatch()">&#8634;</button>
+                </div>
+              </div>
+              
     <div class="keyboard">
 
-     <!-- <div class="row">
-            <button class="key emoji-btn" onclick="toggleSymbols()">Emoji</button>
-        </div> -->
-    
         <div class="row symbols-row" style="display: none;">
         <button class="key" onclick="playSound(this); typeCharacter('&#10084;')">❤</button>
         <button class="key" onclick="playSound(this); typeCharacter('&#128522;')">😊</button>
@@ -380,117 +432,130 @@
         <button class="key" onclick="playSound(this); typeCharacter('&#128528;')">😐</button>
         <button class="key" onclick="playSound(this); typeCharacter('&#128545;')">😠</button>
         <button class="key" onclick="playSound(this); typeCharacter('&#127881;')">🎉</button>
-        </div>
-      <!--  <div class="row">
-            <button class="key gifButton" onclick="gifs()">Gif</button>
-
-        </div>   -->
-        
+        </div>      
        
-
         <div class="row">
-            <button class="key _1" onclick="playSound(this); typeCharacter('`')">`</button>
-            <button class="key" onclick="playSound(this); typeCharacter('1')">1</button>
-            <button class="key" onclick="playSound(this); typeCharacter('2')">2</button>
-            <button class="key" onclick="playSound(this); typeCharacter('3')">3</button>
-            <button class="key" onclick="playSound(this); typeCharacter('4')">4</button>
-            <button class="key" onclick="playSound(this); typeCharacter('5')">5</button>
-            <button class="key" onclick="playSound(this); typeCharacter('6')">6</button>
-            <button class="key" onclick="playSound(this); typeCharacter('7')">7</button>
-            <button class="key" onclick="playSound(this); typeCharacter('8')">8</button>
-            <button class="key" onclick="playSound(this); typeCharacter('9')">9</button>
-            <button class="key" onclick="playSound(this); typeCharacter('0')">0</button>
-            <button class="key" onclick="playSound(this); typeCharacter('-')">-</button>
-            <button class="key" onclick="playSound(this); typeCharacter('=')">=</button>
-            <button class="key backspace" onclick="playSound(this); typeCharacter('backspace')">back <br> space</button>
+            <button class="key _1 letterColor" onclick="playSound(this); typeCharacter('`')">`</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('ा')">ा</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('ि')">ि</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('ी')">ी</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('ु')">ु</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('ू')">ू</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('े')">े</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('ै')">ै</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('ो')">ो</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('ौ')">ौ</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('्')">्</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('ं')">ं</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('़')">़</button>
+            <button class="key backspace letterColor" onclick="playSound(this); typeCharacter('backspace')">back <br> space</button>
 
         </div>
+
         <div class="row">
-            <button class = "key tab" onclick="playSound(this); typeCharacter('')"> tab </button>
-            <button class="key" onclick="playSound(this); typeCharacter('Q')" id="Q">Q</button>
-            <button class="keyss" onclick="playSound(this); typeCharacter('W')" id="W">W</button>
-            <button class="key" onclick="playSound(this); typeCharacter('E')" id="E">E</button>
-            <button class="key" onclick="playSound(this); typeCharacter('R')" id="R">R</button> 
-            <button class="key" onclick="playSound(this); typeCharacter('T')" id="T">T</button>
-            <button class="key" onclick="playSound(this); typeCharacter('Y')" id="Y">Y</button>
-            <button class="key" onclick="playSound(this); typeCharacter('U')" id="U">U</button>
-            <button class="key" onclick="playSound(this); typeCharacter('I')" id="I">I</button>
-            <button class="key" onclick="playSound(this); typeCharacter('O')" id="O">O</button>
-            <button class="key" onclick="playSound(this); typeCharacter('P')" id="P">P</button> 
-            <button class="key" onclick="playSound(this); typeCharacter('&#91')">[</button> 
-            <button class="key" onclick="playSound(this); typeCharacter('&#93')">]</button>
-            <button class="key" onclick="playSound(this); typeCharacter('&#x7C')">|</button>
+            <button class = "keyss letterColor" onclick="playSound(this); typeCharacter('अ')">अ</button>
+            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('आ')" id="Q">आ</button>
+            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('इ')" id="W">इ</button>
+            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('ई')" id="E">ई</button>
+            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('उ')" id="R">उ</button> 
+            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('ऊ')" id="T">ऊ</button>
+            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('ए')" id="Y">ए</button>
+            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('ऐ')" id="U">ऐ</button>
+            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('ओ')" id="I">ओ</button>
+            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('औ')" id="O">औ</button>
+            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('ॅ')" id="P">ॅ</button> 
+            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('ॄ')">ॄ</button> 
+            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('।')">।</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter(':')">:</button>
          
-            
-           
+        </div>
+        
+        <div class="row">
+            <button class = "key letterColor" onclick="playSound(this); typeCharacter('क')">क</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('ख')" id="Q">ख</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('ग')" id="W">ग</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('घ')" id="E">घ</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('च')" id="R">च</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('छ')" id="T">छ</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('ज')" id="Y">ज</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('झ')" id="U">झ</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('ट')" id="I">ट</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('ठ')" id="O">ठ</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('ड')" id="P">ड</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('ढ')">ढ</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('ण')">ण</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('त')">त</button>
+         
         </div>
         <div class="row">
-            <button class=" key caps" onclick="playSound(this); typeCharacter('caps')">caps</button>
-            <button class="keyss" onclick="playSound(this); typeCharacter('A')" id="A">A</button> 
-            <button class="keyss" onclick="playSound(this); typeCharacter('S')" id="S">S</button> 
-            <button class="keyss" onclick="playSound(this); typeCharacter('D')"id="D">D</button> 
-            <button class="key" onclick="playSound(this); typeCharacter('F')"id="F">F</button> 
-            <button class="key" onclick="playSound(this); typeCharacter('G')" id="G">G</button> 
-            <button class="key" onclick="playSound(this); typeCharacter('H')" id="H">H</button> 
-            <button class="key" onclick="playSound(this); typeCharacter('J')" id="J">J</button> 
-            <button class="key" onclick="playSound(this); typeCharacter('K')" id="K">K</button> 
-            <button class="key" onclick="playSound(this); typeCharacter('L')" id="L">L</button> 
-            <button class="key" onclick="playSound(this); typeCharacter(';')">;</button> 
-            <button class="key" onclick="playSound(this); typeCharacter('&#34')">"</button> 
-            <button class="key caps" onclick="playSound(this); typeCharacter('enter')">enter</button>
+            <button class=" key caps letterColor" onclick="playSound(this); typeCharacter('caps')">caps</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('थ')" id="A">थ</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('द')" id="S">द</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('ध')"id="D">ध</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('न')"id="F">न</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('प')" id="G">प</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('फ')" id="H">फ</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('ब')" id="J">ब</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('भ')" id="K">भ</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('म')" id="L">म</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('य')">य</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('र')">र</button> 
+            <button class="key caps letterColor" onclick="playSound(this); typeCharacter('enter')">enter</button>
         </div>
             <!-- 3rd row -->
         <div class="row">
-            <button class = "key shift" onclick="playSound(this); typeCharacter('')"> shift </button>
-            <button class="key" onclick="playSound(this); typeCharacter('Z')" id="Z">Z</button> 
-            <button class="key" onclick="playSound(this); typeCharacter('X')" id="X">X</button> 
-            <button class="key" onclick="playSound(this); typeCharacter('C')" id="C">C</button>
-            <button class="key" onclick="playSound(this); typeCharacter('V')" id="V">V</button> 
-            <button class="key" onclick="playSound(this); typeCharacter('B')" id="B">B</button> 
-            <button class="key" onclick="playSound(this); typeCharacter('N')" id="N">N</button>
-            <button class="key" onclick="playSound(this); typeCharacter('M')" id="M">M</button> 
-            <button class="key" onclick="playSound(this); typeCharacter(',')">,</button> 
-            <button class="key" onclick="playSound(this); typeCharacter('.')">.</button>
-            <button class="key" onclick="playSound(this); typeCharacter('&#47')">/</button> 
-            <button class = "key shift" onclick="playSound(this); typeCharacter('')"> shift </button>
+            <button class = "key shift letterColor" onclick="playSound(this); typeCharacter('')"> shift </button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('ल')" id="Z">ल</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('व')" id="X">व</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('श')" id="C">श</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('ष')" id="V">ष</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('स')" id="B">स</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('ह')" id="N">ह</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('ञ')" id="M">ञ</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('क्ष')">क्ष</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('श्र')">श्र</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('ॐ')">ॐ</button> 
+            <button class = "key shift letterColor" onclick="playSound(this); typeCharacter('')"> shift </button>
         </div>
             
         <div class="row">
-            <button class="kk num" onclick="playSound(this); typeCharacter('toggle')" id="toggle">?123</button>
-            <!-- <button class="k" onclick="playSound(this); typeCharacter('')">fn</button> -->
-            <button class="kk" onclick="playSound(this); toggleSymbols('emo') ;typeCharacter('emo')" id="emo">^_^</button>
-            <button class="kk" onclick="playSound(this); typeCharacter('')">alt</button>
-            <button class="kk space" onclick="playSound(this); typeCharacter('space')"></button>
-            <button class="kk" onclick="playSound(this); typeCharacter('')">alt</button>
-            <button class="kk" onclick="playSound(this); typeCharacter('')">ctrl</button>
-            <button  class="kk e">GIF</button> <!-- id="gif-button"
-            <div id="gif-search-box" class="gif-search-box">
-            <input id="gif-search-input" type="search" placeholder="Search GIFs">
-            <button id="gif-search-btn">Search</button> -->
-            <!-- Additional elements for displaying GIFs -->
-            <!-- <button class="kk e" onclick="playSound(this); window.open('https:/tenor.com/', '_blank') ">GIF</button> -->
+            <button class="key kk num letterColor" onclick="playSound(this); typeCharacter('toggle')" id="toggle">?123</button>
+            <button class="key kk letterColor" onclick="playSound(this); toggleSymbols('emo') ;typeCharacter('emo')" id="emo">^_^</button>
+            <button class="key kk letterColor" onclick="playSound(this); typeCharacter('')">alt</button>
+            <button class="key kk space letterColor" onclick="playSound(this); typeCharacter('space')"></button>
+            <button class="key kk letterColor" onclick="playSound(this); typeCharacter('')">alt</button>
+
+            <a href="file:///D:/sem%202%20notes/techabhivikti%202.0/virtual_keyboard/virtual_keyboard_latest.html">
+                <button class="key kk letterColor" onclick="playSound(this); typeCharacter('')">HIN</button>
+            </a>
+            <button  class="key kk e letterColor">GIF</button>
         </div>
+
+        <button class="kyu" onclick="playSound(this); toggleStopwatch()">Stopwatch</button>
+
+        <button id="open-color-panel-btn" class="open-color-panel-btn">Open Color Panel</button>
          
-         
-        <div id = "color-panel" class="color-panel">
+        <div  class="color-panel" id = "color-panel" style="display: none;">
             <h3>Keyboard Color Settings</h3>
             <label for="backgroundColor" class="color-input">Background Color:</label>
             <input type="color" id="backgroundColor" class="color-input">
     
             <label for="keyColor" class="color-input">Key Color:</label>
             <input type="color" id="keyColor" class="color-input">
+
+            <label for="letterColor" class="color-input">Letter Color:</label>
+            <input type="color" id="letterColor" class="color-input">
     
             <button id="apply-colors">Apply Colors</button>
         </div>
-        <button id="open-color-panel-btn" class="open-color-panel-btn">Open Color Panel</button>
-
 
         <audio id="keyPressSound" keypress = "auto">
-            <source src="C:\Users\HP\Downloads\KeypressSound1.mp3" type="audio/mp3">
-        </audio>
-    
-
-
+            <!-- <source src="C:\Users\HP\Downloads\KeypressSound1.mp3" type="audio/mp3"> -->
+            <source src="D:\sem 2 notes\techabhivikti 2.0\virtual_keyboard\KeypressSound1.mp3" type="audio/mp3">
+        </audio>  
+        
+        <input onclick="speakFromTextarea();" type="button" value="🔊 Play" />
+        
         <script>
              function playSound(button) {
     const audio = document.getElementById('keyPressSound');
@@ -719,6 +784,7 @@ document.addEventListener('keyup', function(event) {
 
 const backgroundColorInput = document.getElementById('backgroundColor');
         const keyColorInput = document.getElementById('keyColor');
+        const letterColorInput = document.getElementById('letterColor');
 
         
         const applyColorsButton = document.getElementById('apply-colors');
@@ -727,11 +793,19 @@ const backgroundColorInput = document.getElementById('backgroundColor');
         function applyColors() {
             const keyboard = document.querySelector('.keyboard');
             const keys = document.querySelectorAll('.key, .k, .keyss');
+            const letterColor = document.querySelectorAll('.letterColor');
+            
 
             keyboard.style.backgroundColor = backgroundColorInput.value;
 
             keys.forEach(key => {
              key.style.backgroundColor = keyColorInput.value;
+            });
+
+            // letterColor.style.color = letterColorInput.value;
+
+            letterColor.forEach(letterColor => {
+             letterColor.style.color = letterColorInput.value;
             });
             
         }
@@ -754,9 +828,7 @@ const backgroundColorInput = document.getElementById('backgroundColor');
             symbolsRow.style.display = (symbolsRow.style.display === 'none') ? 'flex' : 'none';
         }
 
-
-
-        // =======================hover------key============================================
+// ======================= hover________key ============================================
 
         document.querySelectorAll('button').forEach(key => {
     key.addEventListener('mouseover', () => {
@@ -768,45 +840,7 @@ const backgroundColorInput = document.getElementById('backgroundColor');
     });
 });
 
-        // =======================numerical _____ tab============================
-
-//         const button1 = document.getElementById('button1');
-// const button2 = document.getElementById('button2');
-// const button3 = document.getElementById('button3');
-// const changeButton = document.getElementById('changeButton');
-
-// // Initial button names and functions
-// let buttonNames = ['Button 1', 'Button 2', 'Button 3'];
-// let buttonFunctions = [
-//   () => console.log('Button 1 clicked'),
-//   () => console.log('Button 2 clicked'),
-//   () => console.log('Button 3 clicked')
-// ];
-
-// // Function to change button names and functions
-// function changeButtons() {
-//   button1.textContent = 'New Button 1';
-//   button2.textContent = 'New Button 2';
-//   button3.textContent = 'New Button 3';
-
-//   buttonFunctions = [
-//     () => console.log('New Button 1 clicked'),
-//     () => console.log('New Button 2 clicked'),
-//     () => console.log('New Button 3 clicked')
-//   ];
-// }
-
-// // Attach the click event to the changeButton
-// changeButton.addEventListener('click', changeButtons);
-
-// // Attach click events to the buttons
-// button1.addEventListener('click', buttonFunctions[0]);
-// button2.addEventListener('click', buttonFunctions[1]);
-// button3.addEventListener('click', buttonFunctions[2]);
-
-
-
-// 22222=======================numerical _____ tab============================
+// ========================= numerical _____ tab ============================
 const button1 = document.getElementById('A');
 const Q = document.getElementById('Q');
         const button2 = document.getElementById('toggle');
@@ -930,6 +964,7 @@ const Q = document.getElementById('Q');
                 I.textContent = 'I';
                 O.textContent = 'O';
                 P.textContent = 'P';
+                A.textContent = 'A';
                 S.textContent = 'S';
                 D.textContent = 'D';
                 F.textContent = 'F';
@@ -951,20 +986,7 @@ const Q = document.getElementById('Q');
 
         buttonR.addEventListener('click', emoButton);
 
-// <------ voice to text code here ------>
-
-// function voice(){
-
-//         var recognition = new webkitSpeechRecognition();
-//         recognition.lang="en-GB";
-//         recognition.onresult= function(event){
-//             console.log(event);
-//             document.getElementById("speechToText").value = event.results[0][0].transcript;
-//         };
-//         recognition.start();
-// }
-
-
+// voice to text code here
 let isVoiceInput = false;
 
 function toggleVoiceInput() {
@@ -996,9 +1018,7 @@ function startVoiceInput(textInput) {
 
 function stopVoiceInput() {
 }
-
-// from here it starts
-// the code of api 
+// code for api 
 
 let APIKEY = "OYeBl3shtyfZsVn6EFI9XCyvgFmTE0Xo";
       document.addEventListener("DOMContentLoaded", init);
@@ -1016,27 +1036,22 @@ let APIKEY = "OYeBl3shtyfZsVn6EFI9XCyvgFmTE0Xo";
                 console.log(content.data);
                 console.log("META", content.meta);
 
-                // Remove previous GIF
                 const previousGif = document.querySelector(".out figure");
                 if (previousGif) {
                     previousGif.remove();
                 }
 
-                // Create new figure element for the new GIF
                 let fig = document.createElement("figure");
                 fig.style.display = "flex";
-                fig.style.justifyContent = "center"; // Center horizontally
-                fig.style.alignItems = "center"; // Center vertically
+                fig.style.justifyContent = "center";
+                fig.style.alignItems = "center";
 
                 let img = document.createElement("img");
                 img.src = content.data[0].images.downsized.url;
                 img.alt = content.data[0].title;
                 fig.appendChild(img);
-                
-                // Insert the new GIF before the previous search input
                 let out = document.querySelector(".out");
                 out.insertAdjacentElement("afterbegin", fig);
-
                 document.querySelector("#search").value = "";
             })
             .catch(err => {
@@ -1044,15 +1059,6 @@ let APIKEY = "OYeBl3shtyfZsVn6EFI9XCyvgFmTE0Xo";
             });
     });
 }
-
-    //   const gifButton = document.getElementById('gif-button');
-    //     const gifSearchBox = document.getElementById('gif-search-box');
-
-    //     gifSearchBox.style.display = 'none';
-
-    //     gifButton.addEventListener('click', function() {
-    //         gifSearchBox.style.display = gifSearchBox.style.display === 'block' ? 'none' : 'block';
-    //     });
 
 document.addEventListener("DOMContentLoaded", function() {
     const gifButton = document.querySelector('.e');
@@ -1066,11 +1072,242 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-    // gliding typing effect
-    // code is ---> here
+//prediction code
+
+// const input = document.getElementById('textInput');
+// const suggestionsList = document.getElementById('suggestions');
+// const wordPredictions = ['apple', 'banana', 'orange', 'pear', 'grape'];
+
+// function predictWords(input) {
+//     const inputLowerCase = input.toLowerCase();
+//     const predictions = wordPredictions.filter(word => word.startsWith(inputLowerCase));
+//     return predictions;
+// }
+
+// function updateSuggestions() {
+//     const inputText = input.value;
+//     const suggestions = predictWords(inputText);
     
+//     suggestionsList.innerHTML = '';
+//     suggestions.forEach(suggestion => {
+//         const li = document.createElement('li');
+//         li.textContent = suggestion;
+//         suggestionsList.appendChild(li);
+//     });
+// }
+
+// // Event listener for input changes
+// input.addEventListener('input', updateSuggestions);
+
+const textarea = document.getElementById('mytextarea');
+
+        const suggestions = [
+            'project', 'is', 'virtual', 'keyboard','the', 'be', 'to', 'of', 'and', 'a', 'in', 'that', 'have', 'I', 'it', 'for', 'not', 'on', 'with', 'he', 'as', 'you', 'do', 'at', 'this', 'but', 'his', 'by', 'from', 'they', 'we', 'say', 'her', 'she', 'or', 'an', 'will', 'my', 'one', 'all', 'would', 'there', 'their', 'what', 'so', 'up', 'out', 'if', 'about', 'who', 'get', 'which', 'go', 'me', 'when', 'make', 'can', 'like', 'time', 'no', 'just', 'him', 'know', 'take', 'people', 'into', 'year', 'your', 'good', 'some', 'could', 'them', 'see', 'other', 'than', 'then', 'now', 'look', 'only', 'come', 'its', 'over', 'think', 'also', 'back', 'after', 'use', 'two', 'how', 'our', 'work', 'first', 'well', 'way', 'even', 'new', 'want', 'because', 'any', 'these', 'give', 'day', 'most', 'us'
+    ];
+
+        textarea.addEventListener('input', function(event) {
+            const inputText = event.target.value;
+            const cursorPosition = textarea.selectionStart;
+
+            const lastWord = inputText.substring(0, cursorPosition).split(/\s+/).pop();
+            const matchingSuggestions = suggestions.filter(suggestion =>
+                suggestion.toLowerCase().startsWith(lastWord.toLowerCase())
+            );
+
+            if (matchingSuggestions.length > 0) {
+                const suggestionList = document.createElement('ul');
+                suggestionList.classList.add('autocomplete-suggestions');
+
+                matchingSuggestions.forEach(suggestion => {
+                    const listItem = document.createElement('li');
+                    listItem.classList.add('autocomplete-suggestion');
+                    listItem.textContent = suggestion;
+
+                    listItem.addEventListener('click', function() {
+                        const textBeforeCursor = inputText.substring(0, cursorPosition - lastWord.length);
+                        const textAfterCursor = inputText.substring(cursorPosition);
+                        const completedText = textBeforeCursor + suggestion + ' ' + textAfterCursor;
+
+                        textarea.value = completedText;
+                        textarea.dispatchEvent(new Event('input'));
+                    });
+
+                    suggestionList.appendChild(listItem);
+                });
+
+                // Position the suggestions below the textarea
+                suggestionList.style.top = textarea.offsetTop + textarea.offsetHeight + 'px';
+                suggestionList.style.left = textarea.offsetLeft + 'px';
+
+                // Remove existing suggestions if any
+                const existingSuggestions = document.querySelectorAll('.autocomplete-suggestions');
+                existingSuggestions.forEach(suggestion => suggestion.remove());
+
+                // Append new suggestions
+                document.body.appendChild(suggestionList);
+            } else {
+                // Remove suggestions if no matches
+                const existingSuggestions = document.querySelectorAll('.autocomplete-suggestions');
+                existingSuggestions.forEach(suggestion => suggestion.remove());
+            }
+        });
+
+        // append suggestions only on matching first letter of the word
+        textarea.addEventListener('keydown', function(event) {
+            if (event.key === ' ') {
+                const cursorPosition = textarea.selectionStart;
+                const inputText = textarea.value;
+                const lastWord = inputText.substring(0, cursorPosition).split(/\s+/).pop();
+                const matchingSuggestions = suggestions.filter(suggestion =>
+                    suggestion.toLowerCase().startsWith(lastWord.toLowerCase())
+                );
+
+                if (matchingSuggestions.length === 1) {
+                    const textBeforeCursor = inputText.substring(0, cursorPosition - lastWord.length);
+                    const textAfterCursor = inputText.substring(cursorPosition);
+                    const completedText = textBeforeCursor + matchingSuggestions[0] + ' ' + textAfterCursor;
+
+                    textarea.value = completedText;
+                    textarea.dispatchEvent(new Event('input'));
+                }
+            }
+        });
+
+        // Remove suggestions when the textarea is empty
+        textarea.addEventListener('input', function(event) {
+            if (event.target.value === '') {
+                const existingSuggestions = document.querySelectorAll('.autocomplete-suggestions');
+                existingSuggestions.forEach(suggestion => suggestion.remove());
+            }
+        });
+
+        // Remove suggestions on click outside the textarea
+        document.addEventListener('click', function(event) {
+            if (!textarea.contains(event.target)) {
+                const existingSuggestions = document.querySelectorAll('.autocomplete-suggestions');
+                existingSuggestions.forEach(suggestion => suggestion.remove());
+            }
+        });
+
+        // Remove suggestions on scroll
+        document.addEventListener('scroll', function() {
+            const existingSuggestions = document.querySelectorAll('.autocomplete-suggestions');
+            existingSuggestions.forEach(suggestion => suggestion.remove());
+        });
+
+        // Remove suggestions on ESC key press
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const existingSuggestions = document.querySelectorAll('.autocomplete-suggestions');
+                existingSuggestions.forEach(suggestion => suggestion.remove());
+            }
+        });
+
+        // Remove suggestions on space key press
+        textarea.addEventListener('keydown', function(event) {
+    if (event.key === ' ') {
+        // Prevent the default behavior of the space key press (e.g., inserting a space)
+        event.preventDefault();
+
+        const existingSuggestions = document.querySelectorAll('.autocomplete-suggestions');
+        existingSuggestions.forEach(suggestion => suggestion.remove());
+    }
+});
+
+// Get the stopwatch element
+const stopwatchElement = document.getElementById('stopwatch');
+
+// Variables to store stopwatch state
+let startTime = 0;
+let elapsedTime = 0;
+let isRunning = false;
+
+// Function to start the stopwatch
+function startStopwatch() {
+  if (!isRunning) {
+    isRunning = true;
+    startTime = Date.now() - elapsedTime;
+    updateStopwatch();
+  }
+}
+
+// Function to stop the stopwatch
+function stopStopwatch() {
+  if (isRunning) {
+    isRunning = false;
+    elapsedTime = Date.now() - startTime;
+  }
+}
+
+// Function to reset the stopwatch
+function resetStopwatch() {
+  isRunning = false;
+  startTime = 0;
+  elapsedTime = 0;
+  updateStopwatch();
+}
+
+// Function to update the stopwatch display
+function updateStopwatch() {
+  const currentTime = Date.now();
+  elapsedTime = isRunning ? currentTime - startTime : elapsedTime;
+  const seconds = Math.floor(elapsedTime / 1000) % 60;
+  const minutes = Math.floor(elapsedTime / 1000 / 60) % 60;
+  const hours = Math.floor(elapsedTime / 1000 / 60 / 60);
+  stopwatchElement.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+}
+
+// Update the stopwatch every 100 milliseconds
+setInterval(updateStopwatch, 100);
+
+// Toggle the stopwatch display
+function toggleStopwatch() {
+    const stopwatchContainer = document.querySelector('.stopwatch-container');
+    stopwatchContainer.style.display = stopwatchContainer.style.display === 'none' ? 'block' : 'none';
+}
+
+//initially hide the stopwatch
+toggleStopwatch();
+
+// Get the button element
+const kyuButton = document.querySelector('.kyu');
+
+// Get the stopwatch container
+const stopwatchContainer = document.querySelector('.stopwatch-container');
+
+// Event listener for the button
+kyuButton.addEventListener('click', function() {
+  // Toggle the visibility of the stopwatch container
+  stopwatchContainer.classList.toggle('visible');
+  
+  // Center the stopwatch container horizontally
+  if (stopwatchContainer.classList.contains('visible')) {
+    stopwatchContainer.style.left = '50%';
+    stopwatchContainer.style.transform = 'translateX(-50%)';
+  }
+});
+
+// Init text to speech
+
+
+// function readText() {
+//   const textInput = document.getElementById('textInput').value;
+  
+//   if ('speechSynthesis' in window) {
+//     const utterance = new SpeechSynthesisUtterance(textInput);
+//     speechSynthesis.speak(utterance);
+//   } else {
+//     alert('Text-to-speech is not supported in this browser.');
+//   }
+// }
+
+function speakFromTextarea() {
+            const textToSpeak = document.getElementById("myTextarea").value;
+            responsiveVoice.speak(textToSpeak);
+          }
         </script>
-        
     </div>
+    
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=zj5kBtxl"></script>
 </body>
 </html>
