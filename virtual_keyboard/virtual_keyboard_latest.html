@@ -336,6 +336,14 @@
   align-items: center;
 }
 
+.randomtext{
+    font-weight: bold;
+    color: rgb(150, 29, 29);
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: x-large;
+}
+
 .stopwatch {
   background-color:#ebebeb; /* Semi-transparent white background */
   border-radius: 5px;
@@ -386,6 +394,10 @@
     </style>
 </head>
 <body>
+
+    <div>
+        <p class="randomtext" id="displayText"></p>
+    </div>
     <main>
         <form class="search-form" id="searchForm">
             <input id="search" type="search" class="key" placeholder="Search">
@@ -505,11 +517,13 @@
             <button class="key kk letterColor" onclick="playSound(this); typeCharacter('')">alt</button>
             <button class="key kk space letterColor" onclick="playSound(this); typeCharacter('space')"></button>
             <button class="key kk letterColor" onclick="playSound(this); typeCharacter('')">alt</button>
-            <button class="key kk letterColor" onclick="playSound(this); typeCharacter('')">ctrl</button>
+            <a href="file:///D:/sem%202%20notes/techabhivikti%202.0/virtual_keyboard/virtual_keyboard_hindi.html">
+            <button class="key kk letterColor" onclick="playSound(this); typeCharacter('')">ENG</button>
+        </a>
             <button  class="key kk e letterColor">GIF</button>
         </div>
 
-        <button class="kyu" onclick="playSound(this); toggleStopwatch()">Stopwatch</button>
+        <button id="randomButton" class="kyu" onclick="playSound(this); toggleStopwatch() ; toggleText()">Speed Test</button>
 
         <button id="open-color-panel-btn" class="open-color-panel-btn">Open Color Panel</button>
          
@@ -1239,6 +1253,7 @@ function updateStopwatch() {
 setInterval(updateStopwatch, 100);
 
 // Toggle the stopwatch display
+//========================================================================================
 function toggleStopwatch() {
     const stopwatchContainer = document.querySelector('.stopwatch-container');
     stopwatchContainer.style.display = stopwatchContainer.style.display === 'none' ? 'block' : 'none';
@@ -1283,6 +1298,39 @@ function speakFromTextarea() {
             const textToSpeak = document.getElementById("myTextarea").value;
             responsiveVoice.speak(textToSpeak);
           }
+
+
+// =================random speed typing test====================
+// script.js
+const textOptions = [
+    "Pushpa , I hate tears",
+    "Bade bade deshon mein aisi choti-choti baatein hote rehti hai, Senorita",
+    "All izz Well",
+    "Don't underestimate the power of common man",
+    "Jaa Simran jee le apni Zindagi!",
+    "Rishtey mein toh hum tumhare baap lagte hai , naam hai Shahenshaah",
+    "Hum jahan khade hote hain line yahi se shuru hoti hai",
+    "Fear is a tool. They think I'm hiding in the shadows. But I AM the shadows. I Am BATMAN",
+    "I Am Fear. I Am Vengence. I AM BATMAN",
+    "With Great Power comes Great Responsiblity",
+];
+
+const randomButton = document.getElementById("randomButton");
+const displayText = document.getElementById("displayText");
+
+randomButton.addEventListener("click", () => {
+    const randomIndex = Math.floor(Math.random() * textOptions.length);
+    displayText.textContent = textOptions[randomIndex];
+});
+
+function toggleText(){
+    const randomtext = document.querySelector('.randomtext');
+    randomtext.style.display = randomtext.style.display === 'block' ? 'none' : 'block';
+    
+}
+
+
+
         </script>
     </div>
     
