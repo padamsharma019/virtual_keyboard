@@ -30,6 +30,7 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             padding: 30px;
+            flex-wrap: wrap;
         }
 
         .row {
@@ -47,12 +48,13 @@
             height: 60px; 
             margin: 2px;
             border: 1px solid #000000;
-            border-radius: 10px; 
+            border-radius: 10px;
+            box-shadow: 0 4px 8px #0a050079, inset 0 2px 3px rgba(255, 255, 255, 0.5);
             font-size: 24px; 
             text-align: center;
             cursor: pointer;;
-            background-color: #fbcfae;
-            transition: transform 0.1s;
+            background: linear-gradient(145deg, hsl(72, 91%, 50%), #04e486);
+            transition: all 0.3s ease;
         }
 
         .kk {
@@ -65,7 +67,7 @@
             text-align: center;
             cursor: pointer;
             background-color: #ff5733;
-            transition: transform 0.1s;
+            transition: transform 0.3s;
         }
 
         .keyss{
@@ -73,17 +75,18 @@
             height: 60px;
             margin: 2px;
             border-radius: 10px;
-            border:3px solid #fd0000; 
+            border:3px solid #000000; 
             font-size: 24px;
             text-align: center;
             cursor: pointer;
-            background-color: #ffb378;
-            transition: transform 0.1s;
+            background-color: #fbcfae;
+            transition: transform 0.3s;
         }
 
         .key:hover {
-            background-color: #e3d8cf;
-        }
+            transform: translateY(-3px);
+    box-shadow: 0 7px 14px hsla(126, 89%, 38%, 0.2), inset 0 2px 3px rgba(255, 255, 255, 0.3);
+  }
 
         .num{
             width: 150px;
@@ -92,6 +95,8 @@
 
         .k:hover{
             background-color: #e3d8cf;
+            transform: translateY(-3px);
+            box-shadow: 0 7px 14px rgba(0, 0, 0, 0.2);
         }
 
         .space {
@@ -336,6 +341,14 @@
   align-items: center;
 }
 
+.randomtext{
+    font-weight: bold;
+    color: rgb(150, 29, 29);
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: x-large;
+}
+
 .stopwatch {
   background-color:#ebebeb; /* Semi-transparent white background */
   border-radius: 5px;
@@ -386,6 +399,10 @@
     </style>
 </head>
 <body>
+
+    <div>
+        <p class="randomtext" id="displayText"></p>
+    </div>
     <main>
         <form class="search-form" id="searchForm">
             <input id="search" type="search" class="key" placeholder="Search">
@@ -436,85 +453,66 @@
        
         <div class="row">
             <button class="key _1 letterColor" onclick="playSound(this); typeCharacter('`')">`</button>
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('ा')">ा</button>
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('ि')">ि</button>
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('ी')">ी</button>
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('ु')">ु</button>
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('ू')">ू</button>
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('े')">े</button>
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('ै')">ै</button>
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('ो')">ो</button>
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('ौ')">ौ</button>
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('्')">्</button>
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('ं')">ं</button>
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('़')">़</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('1')">1</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('2')">2</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('3')">3</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('4')">4</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('5')">5</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('6')">6</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('7')">7</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('8')">8</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('9')">9</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('0')">0</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('-')">-</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('=')">=</button>
             <button class="key backspace letterColor" onclick="playSound(this); typeCharacter('backspace')">back <br> space</button>
 
         </div>
-
         <div class="row">
-            <button class = "keyss letterColor" onclick="playSound(this); typeCharacter('अ')">अ</button>
-            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('आ')" id="Q">आ</button>
-            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('इ')" id="W">इ</button>
-            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('ई')" id="E">ई</button>
-            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('उ')" id="R">उ</button> 
-            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('ऊ')" id="T">ऊ</button>
-            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('ए')" id="Y">ए</button>
-            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('ऐ')" id="U">ऐ</button>
-            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('ओ')" id="I">ओ</button>
-            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('औ')" id="O">औ</button>
-            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('ॅ')" id="P">ॅ</button> 
-            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('ॄ')">ॄ</button> 
-            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('।')">।</button>
-            <button class="key letterColor" onclick="playSound(this); typeCharacter(':')">:</button>
-         
-        </div>
-        
-        <div class="row">
-            <button class = "key letterColor" onclick="playSound(this); typeCharacter('क')">क</button>
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('ख')" id="Q">ख</button>
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('ग')" id="W">ग</button>
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('घ')" id="E">घ</button>
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('च')" id="R">च</button> 
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('छ')" id="T">छ</button>
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('ज')" id="Y">ज</button>
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('झ')" id="U">झ</button>
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('ट')" id="I">ट</button>
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('ठ')" id="O">ठ</button>
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('ड')" id="P">ड</button> 
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('ढ')">ढ</button> 
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('ण')">ण</button>
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('त')">त</button>
+            <button class = "key tab letterColor" onclick="playSound(this); typeCharacter('')"> tab </button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('Q')" id="Q">Q</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('W')" id="W">W</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('E')" id="E">E</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('R')" id="R">R</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('T')" id="T">T</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('Y')" id="Y">Y</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('U')" id="U">U</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('I')" id="I">I</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('O')" id="O">O</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('P')" id="P">P</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('&#91')">[</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('&#93')">]</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('&#x7C')">|</button>
          
         </div>
         <div class="row">
             <button class=" key caps letterColor" onclick="playSound(this); typeCharacter('caps')">caps</button>
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('थ')" id="A">थ</button> 
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('द')" id="S">द</button> 
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('ध')"id="D">ध</button> 
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('न')"id="F">न</button> 
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('प')" id="G">प</button> 
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('फ')" id="H">फ</button> 
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('ब')" id="J">ब</button> 
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('भ')" id="K">भ</button> 
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('म')" id="L">म</button> 
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('य')">य</button> 
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('र')">र</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('A')" id="A">A</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('S')" id="S">S</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('D')"id="D">D</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('F')"id="F">F</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('G')" id="G">G</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('H')" id="H">H</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('J')" id="J">J</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('K')" id="K">K</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('L')" id="L">L</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter(';')">;</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('&#34')">"</button> 
             <button class="key caps letterColor" onclick="playSound(this); typeCharacter('enter')">enter</button>
         </div>
             <!-- 3rd row -->
         <div class="row">
             <button class = "key shift letterColor" onclick="playSound(this); typeCharacter('')"> shift </button>
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('ल')" id="Z">ल</button> 
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('व')" id="X">व</button> 
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('श')" id="C">श</button>
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('ष')" id="V">ष</button> 
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('स')" id="B">स</button> 
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('ह')" id="N">ह</button>
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('ञ')" id="M">ञ</button> 
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('क्ष')">क्ष</button> 
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('श्र')">श्र</button>
-            <button class="key letterColor" onclick="playSound(this); typeCharacter('ॐ')">ॐ</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('Z')" id="Z">Z</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('X')" id="X">X</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('C')" id="C">C</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('V')" id="V">V</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('B')" id="B">B</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('N')" id="N">N</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('M')" id="M">M</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter(',')">,</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('.')">.</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('&#47')">/</button> 
             <button class = "key shift letterColor" onclick="playSound(this); typeCharacter('')"> shift </button>
         </div>
             
@@ -524,14 +522,14 @@
             <button class="key kk letterColor" onclick="playSound(this); typeCharacter('')">alt</button>
             <button class="key kk space letterColor" onclick="playSound(this); typeCharacter('space')"></button>
             <button class="key kk letterColor" onclick="playSound(this); typeCharacter('')">alt</button>
-
-            <a href="file:///D:/sem%202%20notes/techabhivikti%202.0/virtual_keyboard/HTML/virtual_keyboard_latest.html">
-                <button class="key kk letterColor" onclick="playSound(this); typeCharacter('')">HIN</button>
-            </a>
+            <a href="file:///D:/sem%202%20notes/techabhivikti%202.0/virtual_keyboard/virtual_keyboard_hindi.html">
+            <button class="key kk letterColor" onclick="playSound(this); typeCharacter('')">ENG</button>
+        </a>
             <button  class="key kk e letterColor">GIF</button>
         </div>
 
-        <button class="kyu" onclick="playSound(this); toggleStopwatch()">Stopwatch</button>
+        <button id="randomButton" class="kyu" onclick="playSound(this); toggleStopwatch() ; toggleText()">Speed Test</button>
+
 
         <button id="open-color-panel-btn" class="open-color-panel-btn">Open Color Panel</button>
          
@@ -828,7 +826,7 @@ const backgroundColorInput = document.getElementById('backgroundColor');
             symbolsRow.style.display = (symbolsRow.style.display === 'none') ? 'flex' : 'none';
         }
 
-// ======================= hover________key ============================================
+// ======================= hover__key ============================================
 
         document.querySelectorAll('button').forEach(key => {
     key.addEventListener('mouseover', () => {
@@ -837,7 +835,7 @@ const backgroundColorInput = document.getElementById('backgroundColor');
 
     key.addEventListener('mouseout', () => {
         key.style.transform = 'translateY(0)';
-    });
+    });
 });
 
 // ========================= numerical _____ tab ============================
@@ -1251,16 +1249,17 @@ function resetStopwatch() {
 function updateStopwatch() {
   const currentTime = Date.now();
   elapsedTime = isRunning ? currentTime - startTime : elapsedTime;
+  const milliseconds = elapsedTime % 1000;
   const seconds = Math.floor(elapsedTime / 1000) % 60;
   const minutes = Math.floor(elapsedTime / 1000 / 60) % 60;
-  const hours = Math.floor(elapsedTime / 1000 / 60 / 60);
-  stopwatchElement.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  stopwatchElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}.${milliseconds.toString().padStart(3, '0')}`;
 }
 
 // Update the stopwatch every 100 milliseconds
 setInterval(updateStopwatch, 100);
 
 // Toggle the stopwatch display
+//========================================================================================
 function toggleStopwatch() {
     const stopwatchContainer = document.querySelector('.stopwatch-container');
     stopwatchContainer.style.display = stopwatchContainer.style.display === 'none' ? 'block' : 'none';
@@ -1305,6 +1304,39 @@ function speakFromTextarea() {
             const textToSpeak = document.getElementById("myTextarea").value;
             responsiveVoice.speak(textToSpeak);
           }
+
+
+// =================random speed typing test====================
+// script.js
+const textOptions = [
+    "Pushpa , I hate tears",
+    "Bade bade deshon mein aisi choti-choti baatein hote rehti hai, Senorita",
+    "All izz Well",
+    "Don't underestimate the power of common man",
+    "Jaa Simran jee le apni Zindagi!",
+    "Rishtey mein toh hum tumhare baap lagte hai , naam hai Shahenshaah",
+    "Hum jahan khade hote hain line yahi se shuru hoti hai",
+    "Fear is a tool. They think I'm hiding in the shadows. But I AM the shadows. I Am BATMAN",
+    "I Am Fear. I Am Vengence. I AM BATMAN",
+    "With Great Power comes Great Responsiblity",
+];
+
+const randomButton = document.getElementById("randomButton");
+const displayText = document.getElementById("displayText");
+
+randomButton.addEventListener("click", () => {
+    const randomIndex = Math.floor(Math.random() * textOptions.length);
+    displayText.textContent = textOptions[randomIndex];
+});
+
+function toggleText(){
+    const randomtext = document.querySelector('.randomtext');
+    randomtext.style.display = randomtext.style.display === 'block' ? 'none' : 'block';
+    
+}
+
+
+
         </script>
     </div>
     
