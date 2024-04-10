@@ -16,7 +16,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    
 }
 
 .custom-button {
@@ -25,17 +25,29 @@ body {
     background-position: center;
     border: none;
     padding: 20px;
-    width: 200px;
-    height: 200px;
+    width: 360px;
+    height: 290px;
     cursor: pointer;
     transition: transform 0.3s ease;
     color: rgb(202, 43, 43);
-    font-size: 16px;
+    font-size: 25px;
     text-align: center;
+    border-radius: 15px;
+    font-weight: bolder;
+    margin-right: 35px;
+    margin-top: 20px;
 }
 
 .custom-button:hover {
     transform: scale(1.05);
+}
+
+.theme{
+    font-weight: bold;
+            color: rgb(201, 57, 57);
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: xx-large;
 }
 
     </style>
@@ -43,36 +55,46 @@ body {
 </head>
 <body>
 
+    <p class="theme">Themes</p>
+
+
+
+
+
     <a href="file:///D:/sem%202%20notes/techabhivikti%202.0/virtual_keyboard/HTML/virtual_keyboard_latest.html">
     <div class="button-container">
-        <button class="custom-button" style="background-image: url('D:\sem 2 notes\techabhivikti 2.0\virtual_keyboard\theme photos\Screenshot 2024-04-10 031023.png');">
+        <button class="custom-button" style="background-image: url(theme-og.png);">
             OG Orange
         </button></a>
 
         <a href="file:///D:/sem%202%20notes/techabhivikti%202.0/virtual_keyboard/HTML/virtual_keyboard_theme_superdark.html">
-            <button class="custom-button" style="background-image: url('button2.jpg');">
+            <button class="custom-button" style="background-image: url(theme-superdark.png);">
                 SuperDark
             </button></a>
 
         <a href="file:///D:/sem%202%20notes/techabhivikti%202.0/virtual_keyboard/HTML/virtual_keyboard_theme_green.html">
-        <button class="custom-button" style="background-image: url('button2.jpg');">
+        <button class="custom-button" style="background-image: url(theme-green.png);">
             Green-Tint
-        </button></a>
+        </button></a></div>
+
+        <div class="button-container">
 
         <a href="file:///D:/sem%202%20notes/techabhivikti%202.0/virtual_keyboard/HTML/virtual_keyboard_theme_darkog.html">
-            <button class="custom-button" style="background-image: url('button2.jpg');">
+            <button class="custom-button" style="background-image: url(theme-dark-og.png);">
                 Dark OG Orange
             </button></a>
 
             <a href="file:///D:/sem%202%20notes/techabhivikti%202.0/virtual_keyboard/HTML/virtual_keyboard_theme_red-blue.html">
-                <button class="custom-button" style="background-image: url('button2.jpg');">
+                <button class="custom-button" style="background-image: url(theme-red-blue.png);">
                     Red-Blue Tint
                 </button></a>
 
                 <a href="file:///D:/sem%202%20notes/techabhivikti%202.0/virtual_keyboard/HTML/virtual_keyboard_theme_batman.html">
-                    <button class="custom-button" style="background-image: url('button2.jpg');">
+                    <button class="custom-button" style="background-image: url(theme-batman.jpg);">
                         BATMAN
                     </button></a>
+
+                </div>
 
         
         <!-- Add four more buttons with different images -->
