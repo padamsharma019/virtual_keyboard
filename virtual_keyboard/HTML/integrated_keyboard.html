@@ -55,7 +55,7 @@ li:hover {
     <input type="text" id="searchInput" placeholder="Search...">
     <ul id="searchResults"></ul>
     <input type="checkbox" id="keyboardCheckbox">
-    <label for="keyboardCheckbox">Show Virtual Keyboard</label>
+    <label for="keyboardCheckbox">on-screen Keyboard</label>
     <div class="keyboard-container">
 
 
@@ -1401,11 +1401,8 @@ function typeCharacter(character) {
                   responsiveVoice.speak(textToSpeak);
                 }
               </script>
-          </div>
-          
-          <script src="https://code.responsivevoice.org/responsivevoice.js?key=zj5kBtxl"></script>
-    
-    </div>
+         </div>
+     </div>
   </div>
 
   <script>
@@ -1415,28 +1412,26 @@ function typeCharacter(character) {
   const keyboardCheckbox = document.getElementById('keyboardCheckbox');
   const keyboardContainer = document.querySelector('.keyboard-container');
 
-//   // Sample data
-//   const data = [
-//     'Apple',
-//     'Banana',
-//     'Orange',
-//     'Mango',
-//     'Pineapple',
-//     'Grapes',
-//     'Watermelon',
-//     'Strawberry',
-//     'Kiwi',
-//     'Peach'
-//   ];
+  // Sample data
+  const data = [
+    'Apple',
+    'Banana',
+    'Orange',
+    'Mango',
+    'Pineapple',
+    'Grapes',
+    'Watermelon',
+    'Strawberry',
+    'Kiwi',
+    'Peach'
+  ];
 
-  // Function to filter data based on search input
   function filterData() {
     const searchTerm = searchInput.value.toLowerCase();
     const filteredData = data.filter(item => item.toLowerCase().includes(searchTerm));
     renderResults(filteredData);
   }
 
-  // Function to render search results
   function renderResults(results) {
     searchResults.innerHTML = '';
     results.forEach(result => {
@@ -1446,15 +1441,12 @@ function typeCharacter(character) {
     });
   }
 
-  // Event listener for input changes
   searchInput.addEventListener('input', filterData);
 
-  // Event listener for checkbox changes
   keyboardCheckbox.addEventListener('change', function () {
     keyboardContainer.style.display = this.checked ? 'block' : 'none';
   });
 
-  // Initial render
   renderResults(data);
 });
   </script>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<style>
+    body {
+    background-image: url('file:///C:/Users/HP/Downloads/spotify-gxhpo846gm70jwqc.jpg');
+    background-size: cover;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    padding: 20px;
+}
+
+h1 {
+    margin: 0;
+}
+
+form {
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 300px;
+    background-color: #333;
+    color: #fff;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1db954;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #26cc6d;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    background-color: #000;
+    color: #777;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+</style>
+
+<body>
+    <header>
+        <h1>Spotify</h1>
+        <form id="searchForm">
+            <input type="text" id="searchInput" placeholder="Search for songs...">
+            <button type="submit">Search</button>
+        </form>
+    </header>
+    <main>
+        <div id="searchResults">
+            <!-- Search results will be displayed here -->
+        </div>
+    </main>
+    <footer>
+        <!-- Footer content -->
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    // Sample list of songs
+var songs = [
+    { title: "Dope Shope", artist: "Honey Singh" },
+    { title: "Dil Chori", artist: "Honey Singh" },
+    { title: "Desi Kalakar", artist: "Honey Singh" },
+    { title: "Blue Eyes", artist: "Honey Singh" },
+    { title: "Lungi Dance", artist: "Honey Singh" },
+    { title: "Brown Rang", artist: "Honey Singh" },
+    { title: "High Heels", artist: "Honey Singh" },
+    { title: "Angreji Beat", artist: "Honey Singh" },
+    { title: "Sunny Sunny", artist: "Honey Singh" },
+    { title: "Love Dose", artist: "Honey Singh" }
+];
+
+$(document).ready(function() {
+    $('#searchForm').submit(function(event) {
+        event.preventDefault(); // Prevent form submission
+        
+        var searchTerm = $('#searchInput').val().toLowerCase();
+        var searchResults = searchSongs(searchTerm);
+        displayResults(searchResults);
+    });
+});
+
+function searchSongs(query) {
+    var results = [];
+    songs.forEach(function(song) {
+        if (song.title.toLowerCase().includes(query) || song.artist.toLowerCase().includes(query)) {
+            results.push(song);
+        }
+    });
+    return results;
+}
+
+function displayResults(results) {
+    var resultsDiv = $('#searchResults');
+    resultsDiv.empty();
+
+    if (results.length === 0) {
+        resultsDiv.append('<p>No results found.</p>');
+    } else {
+        results.forEach(function(song) {
+            var songDiv = $('<div>').addClass('song');
+            var title = $('<h3>').text(song.title);
+            var artist = $('<p>').text('Artist: ' + song.artist);
+
+            songDiv.append(title, artist);
+            resultsDiv.append(songDiv);
+        });
+    }
+}
+
+</script>
+
+</body>
+</html>
