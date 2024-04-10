@@ -26,7 +26,7 @@
         .keyboard {
             display: flex;
             flex-direction: column;
-            background-color: #eeeeee;
+            background-color:  #303030;
             border: 1px solid #ccc;
             border-radius: 5px;
             padding: 30px;
@@ -38,7 +38,8 @@
         }
 
         .letterColor {
-            color: #0e0e0e;
+            color: #e10000a1;
+            font-weight: bold;
 
         }
 
@@ -50,9 +51,10 @@
             border-radius: 10px; 
             font-size: 24px; 
             text-align: center;
-            cursor: pointer;;
-            background-color: #fbcfae;
+            cursor: pointer;
             transition: transform 0.3s;
+            background: url("bat.jpg");
+            background-size: cover;
         }
 
         .kk {
@@ -70,15 +72,16 @@
 
         .keyss{
             width: 60px;
-            height: 60px;
+            height: 60px; 
             margin: 2px;
-            border-radius: 10px;
-            border:3px solid #fd0000; 
-            font-size: 24px;
+            border: 1px solid #000000;
+            border-radius: 10px; 
+            font-size: 24px; 
             text-align: center;
             cursor: pointer;
-            background-color: #ffb378;
             transition: transform 0.3s;
+            background: url("bats.jpg");
+            background-size: cover;
         }
 
         .key:hover {
@@ -138,7 +141,7 @@
         }
 
         .keyss:hover {
-            background-color: #e41e18;
+            background-color: #292929;
         }
 
         .color-panel {
@@ -239,7 +242,7 @@
             transition: 0.25s;
             }
 
-        button.voice-toggle:hover {
+            button.voice-toggle:hover {
             background-color: #0c5310;
         }
 
@@ -410,7 +413,7 @@
 
     </style>
 </head>
-<body >
+<body style="background-image: url(bgbatman.jpg); background-size: cover;">
 
     <div>
         <p class="randomtext" id="displayText"></p>
@@ -442,30 +445,30 @@
     <div class="keyboard">
 
         <div class="row symbols-row" style="display: none;">
-        <button class="key" onclick="playSound(this); typeCharacter('&#10084;')">❤</button>
-        <button class="key" onclick="playSound(this); typeCharacter('&#128522;')">😊</button>
-        <button class="key" onclick="playSound(this); typeCharacter('&#128516;')">😄</button>
-        <button class="key" onclick="playSound(this); typeCharacter('&#128515;')">😃</button>
-        <button class="key" onclick="playSound(this); typeCharacter('&#128513;')">😁</button>
-        <button class="key" onclick="playSound(this); typeCharacter('&#128514;')">😆</button>
-        <button class="key" onclick="playSound(this); typeCharacter('&#128514;')">😂</button>
-        <button class="key" onclick="playSound(this); typeCharacter('&#128526;')">😎</button>
-        <button class="key" onclick="playSound(this); typeCharacter('&#128540;')">😜</button>
-        <button class="key" onclick="playSound(this); typeCharacter('&#128525;')">😍</button>
-        <button class="key" onclick="playSound(this); typeCharacter('&#128519;')">😇</button>
-        <button class="key" onclick="playSound(this); typeCharacter('&#128527;')">😏</button>
-        <button class="key" onclick="playSound(this); typeCharacter('&#128523;')">😋</button>
-        <button class="key" onclick="playSound(this); typeCharacter('&#128524;')">😌</button>
-        <button class="key" onclick="playSound(this); typeCharacter('&#128523;')">😛</button>
-        <button class="key" onclick="playSound(this); typeCharacter('&#128546;')">😢</button>
-        <button class="key" onclick="playSound(this); typeCharacter('&#128533;')">😕</button>
-        <button class="key" onclick="playSound(this); typeCharacter('&#128528;')">😐</button>
-        <button class="key" onclick="playSound(this); typeCharacter('&#128545;')">😠</button>
-        <button class="key" onclick="playSound(this); typeCharacter('&#127881;')">🎉</button>
+        <button class="keyss" onclick="playSound(this); typeCharacter('&#10084;')">❤</button>
+        <button class="keyss" onclick="playSound(this); typeCharacter('&#128522;')">😊</button>
+        <button class="keyss" onclick="playSound(this); typeCharacter('&#128516;')">😄</button>
+        <button class="keyss" onclick="playSound(this); typeCharacter('&#128515;')">😃</button>
+        <button class="keyss" onclick="playSound(this); typeCharacter('&#128513;')">😁</button>
+        <button class="keyss" onclick="playSound(this); typeCharacter('&#128514;')">😆</button>
+        <button class="keyss" onclick="playSound(this); typeCharacter('&#128514;')">😂</button>
+        <button class="keyss" onclick="playSound(this); typeCharacter('&#128526;')">😎</button>
+        <button class="keyss" onclick="playSound(this); typeCharacter('&#128540;')">😜</button>
+        <button class="keyss" onclick="playSound(this); typeCharacter('&#128525;')">😍</button>
+        <button class="keyss" onclick="playSound(this); typeCharacter('&#128519;')">😇</button>
+        <button class="keyss" onclick="playSound(this); typeCharacter('&#128527;')">😏</button>
+        <button class="keyss" onclick="playSound(this); typeCharacter('&#128523;')">😋</button>
+        <button class="keyss" onclick="playSound(this); typeCharacter('&#128524;')">😌</button>
+        <button class="keyss" onclick="playSound(this); typeCharacter('&#128523;')">😛</button>
+        <button class="keyss" onclick="playSound(this); typeCharacter('&#128546;')">😢</button>
+        <button class="keyss" onclick="playSound(this); typeCharacter('&#128533;')">😕</button>
+        <button class="keyss" onclick="playSound(this); typeCharacter('&#128528;')">😐</button>
+        <button class="keyss" onclick="playSound(this); typeCharacter('&#128545;')">😠</button>
+        <button class="keyss" onclick="playSound(this); typeCharacter('&#127881;')">🎉</button>
         </div>      
        
         <div class="row">
-            <button class="key _1 letterColor" onclick="playSound(this); typeCharacter('`')">`</button>
+            <button class="keyss _1 letterColor" onclick="playSound(this); typeCharacter('`')">`</button>
             <button class="key letterColor" onclick="playSound(this); typeCharacter('1')">1</button>
             <button class="key letterColor" onclick="playSound(this); typeCharacter('2')">2</button>
             <button class="key letterColor" onclick="playSound(this); typeCharacter('3')">3</button>
@@ -482,9 +485,9 @@
 
         </div>
         <div class="row">
-            <button class = "key tab letterColor" onclick="playSound(this); typeCharacter('')"> tab </button>
+            <button class = "keyss tab letterColor" onclick="playSound(this); typeCharacter('')"> tab </button>
             <button class="key letterColor" onclick="playSound(this); typeCharacter('Q')" id="Q">Q</button>
-            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('W')" id="W">W</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('W')" id="W">W</button>
             <button class="key letterColor" onclick="playSound(this); typeCharacter('E')" id="E">E</button>
             <button class="key letterColor" onclick="playSound(this); typeCharacter('R')" id="R">R</button> 
             <button class="key letterColor" onclick="playSound(this); typeCharacter('T')" id="T">T</button>
@@ -499,10 +502,10 @@
          
         </div>
         <div class="row">
-            <button class=" key caps letterColor" onclick="playSound(this); typeCharacter('caps')">caps</button>
-            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('A')" id="A">A</button> 
-            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('S')" id="S">S</button> 
-            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('D')"id="D">D</button> 
+            <button class=" keyss caps letterColor" onclick="playSound(this); typeCharacter('caps')">caps</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('A')" id="A">A</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('S')" id="S">S</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('D')"id="D">D</button> 
             <button class="key letterColor" onclick="playSound(this); typeCharacter('F')"id="F">F</button> 
             <button class="key letterColor" onclick="playSound(this); typeCharacter('G')" id="G">G</button> 
             <button class="key letterColor" onclick="playSound(this); typeCharacter('H')" id="H">H</button> 
@@ -511,7 +514,7 @@
             <button class="key letterColor" onclick="playSound(this); typeCharacter('L')" id="L">L</button> 
             <button class="key letterColor" onclick="playSound(this); typeCharacter(';')">;</button> 
             <button class="key letterColor" onclick="playSound(this); typeCharacter('&#34')">"</button> 
-            <button class="key caps letterColor" onclick="playSound(this); typeCharacter('enter')">enter</button>
+            <button class="keyss caps letterColor" onclick="playSound(this); typeCharacter('enter')">enter</button>
         </div>
             <!-- 3rd row -->
         <div class="row">
@@ -530,13 +533,13 @@
         </div>
             
         <div class="row">
-            <button class="key kk num letterColor" onclick="playSound(this); typeCharacter('toggle')" id="toggle">?123</button>
-            <button class="key kk letterColor" onclick="playSound(this); toggleSymbols('emo') ;typeCharacter('emo')" id="emo">^_^</button>
-            <button class="key kk letterColor" onclick="playSound(this); typeCharacter('')">alt</button>
-            <button class="key kk space letterColor" onclick="playSound(this); typeCharacter('space')"></button>
-            <button class="key kk letterColor" onclick="playSound(this); typeCharacter('')">alt</button>
+            <button class="keyss kk num letterColor" onclick="playSound(this); typeCharacter('toggle')" id="toggle">?123</button>
+            <button class="keyss kk letterColor" onclick="playSound(this); toggleSymbols('emo') ;typeCharacter('emo')" id="emo">^_^</button>
+            <button class="keyss kk letterColor" onclick="playSound(this); typeCharacter('')">alt</button>
+            <button class="keyss kk space letterColor" onclick="playSound(this); typeCharacter('space')"></button>
+            <button class="keyss kk letterColor" onclick="playSound(this); typeCharacter('')">alt</button>
             <a href="file:///D:/sem%202%20notes/techabhivikti%202.0/virtual_keyboard/virtual_keyboard_hindi.html">
-            <button class="key kk letterColor" onclick="playSound(this); typeCharacter('')">eng</button>
+            <button class="keyss kk letterColor" onclick="playSound(this); typeCharacter('')">eng</button>
         </a>
             <button  class="key kk e letterColor">GIF</button>
         </div>
