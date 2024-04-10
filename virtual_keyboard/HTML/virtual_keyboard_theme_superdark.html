@@ -26,7 +26,7 @@
         .keyboard {
             display: flex;
             flex-direction: column;
-            background-color: #eeeeee;
+            background-color:  #000000;
             border: 1px solid #ccc;
             border-radius: 5px;
             padding: 30px;
@@ -38,7 +38,7 @@
         }
 
         .letterColor {
-            color: #0e0e0e;
+            color: #00ff22;
 
         }
 
@@ -46,12 +46,12 @@
             width: 60px;
             height: 60px; 
             margin: 2px;
-            border: 1px solid #000000;
+            border: 1px solid #272727;
             border-radius: 10px; 
             font-size: 24px; 
             text-align: center;
             cursor: pointer;;
-            background-color: #fbcfae;
+            background-color: #000000;
             transition: transform 0.3s;
         }
 
@@ -59,12 +59,12 @@
             width: 70px;
             height: 60px;
             margin: 2px;
-            border: 1px solid #000000;
+            border: 1px solid #2d2d2d;
             border-radius: 10px; 
             font-size: 24px; 
             text-align: center;
             cursor: pointer;
-            background-color: #ff5733;
+            background-color: #000000;
             transition: transform 0.3s;
         }
 
@@ -82,12 +82,12 @@
         }
 
         .key:hover {
-            background-color: #e3d8cf;
+            background-color: #292929;
         }
 
         .num{
             width: 150px;
-            background-color: #ff5733;
+            background-color: #000000;
         }
 
         .k:hover{
@@ -96,20 +96,20 @@
 
         .space {
             grid-column: span 2;
-            background-color: #ff7455;
+            background-color: #1a1a1a;
             color: rgb(19, 18, 18);
             width: 330px;
         }
 
         .tab {
             width: 60px;
-            background-color: #ff5733;
+            background-color: #000000;
             
         }
 
         .caps {
             width: 95px;
-            background-color: #ff5733;
+            background-color: #000000;
         }
 
         .caps-lock-indicator {
@@ -118,23 +118,23 @@
         }
 
         .caps-lock-on {
-            color: #FF0000; 
+            color: #000000; 
         }
 
 
         .shift {
             width: 128px;
-            background-color: #ff5733;
+            background-color: #000000;
         }
 
         ._1 {
             width: 30px;
-            background-color: #ff5733;            /* ff5733 */
+            background-color: #000000;            /* ff5733 */
         }
 
         .backspace {
             width: 90px;
-            background-color: #ff5733;             /* ff5733 */
+            background-color: #000000;             /* ff5733 */
         }
 
         .keyss:hover {
@@ -408,11 +408,9 @@
         transition: 0.25s;
     }
 
-
-
     </style>
 </head>
-<body >
+<body style="background-color: #252525;">
 
     <div>
         <p class="randomtext" id="displayText"></p>
@@ -431,11 +429,6 @@
             <textarea class="textarea" id="mytextarea" placeholder="Start typing or click the button to start voice input..."></textarea>
             <button class="voice-toggle" onclick="toggleVoiceInput()">Voice Input</button>
             <!-- <button class="voice-toggle">Auto Prediction</button>    -->
-
-            <div class="bow">
-                <select></select>
-                <button> Listen </button>
-            </div>
 
               <div class="stopwatch-container">
                 <div id="stopwatch" class="stopwatch">00:00:00</div>
@@ -491,7 +484,7 @@
         <div class="row">
             <button class = "key tab letterColor" onclick="playSound(this); typeCharacter('')"> tab </button>
             <button class="key letterColor" onclick="playSound(this); typeCharacter('Q')" id="Q">Q</button>
-            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('W')" id="W">W</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('W')" id="W">W</button>
             <button class="key letterColor" onclick="playSound(this); typeCharacter('E')" id="E">E</button>
             <button class="key letterColor" onclick="playSound(this); typeCharacter('R')" id="R">R</button> 
             <button class="key letterColor" onclick="playSound(this); typeCharacter('T')" id="T">T</button>
@@ -507,9 +500,9 @@
         </div>
         <div class="row">
             <button class=" key caps letterColor" onclick="playSound(this); typeCharacter('caps')">caps</button>
-            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('A')" id="A">A</button> 
-            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('S')" id="S">S</button> 
-            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('D')"id="D">D</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('A')" id="A">A</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('S')" id="S">S</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('D')"id="D">D</button> 
             <button class="key letterColor" onclick="playSound(this); typeCharacter('F')"id="F">F</button> 
             <button class="key letterColor" onclick="playSound(this); typeCharacter('G')" id="G">G</button> 
             <button class="key letterColor" onclick="playSound(this); typeCharacter('H')" id="H">H</button> 
@@ -533,7 +526,7 @@
             <button class="key letterColor" onclick="playSound(this); typeCharacter(',')">,</button> 
             <button class="key letterColor" onclick="playSound(this); typeCharacter('.')">.</button>
             <button class="key letterColor" onclick="playSound(this); typeCharacter('&#47')">/</button> 
-            <button class = "key shift letterColor" onclick="playSound(this); typeCharacter('')">suggest</button>
+            <button class = "key shift letterColor" onclick="playSound(this); typeCharacter('')">Auto Complete</button>
         </div>
             
         <div class="row">
@@ -543,7 +536,7 @@
             <button class="key kk space letterColor" onclick="playSound(this); typeCharacter('space')"></button>
             <button class="key kk letterColor" onclick="playSound(this); typeCharacter('')">alt</button>
             <a href="file:///D:/sem%202%20notes/techabhivikti%202.0/virtual_keyboard/virtual_keyboard_hindi.html">
-            <button class="key kk letterColor" onclick="playSound(this); typeCharacter('')">eng</button>
+            <button class="key kk letterColor" onclick="playSound(this); typeCharacter('')">ENG</button>
         </a>
             <button  class="key kk e letterColor">GIF</button>
         </div>
@@ -1359,27 +1352,7 @@ function toggleText(){
     
 }
 
-// Init text to speech
-let speech = new SpeechSynthesisUtterance();
 
-let voices = [];
-
-let voiceSelect = document.querySelector("select");
-
-window.speechSynthesis.onvoiceschanged = () => { 
-    voices = window.speechSynthesis.getVoices();
-    speech.voice = voices[0];
-
-    voices.forEach((voice, i) => (voiceSelect.options[i] = new Option(voice.name, i)));
- };
-
-voiceSelect.addEventListener("change", () => {
-    speech.voice = voices[voiceSelect.value];
-});
-document.querySelector("button").addEventListener("click", () =>{
-    speech.text = document.querySelector("textarea").value;
-    window.speechSynthesis.speak(speech);
-});
 
         </script>
     </div>

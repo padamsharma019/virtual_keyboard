@@ -30,6 +30,7 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             padding: 30px;
+            flex-wrap: wrap;
         }
 
         .row {
@@ -47,12 +48,13 @@
             height: 60px; 
             margin: 2px;
             border: 1px solid #000000;
-            border-radius: 10px; 
+            border-radius: 10px;
+            box-shadow: 0 4px 8px #0a050079, inset 0 2px 3px rgba(255, 255, 255, 0.5);
             font-size: 24px; 
             text-align: center;
             cursor: pointer;;
-            background-color: #fbcfae;
-            transition: transform 0.3s;
+            background: linear-gradient(145deg, hsl(72, 91%, 50%), #04e486);
+            transition: all 0.3s ease;
         }
 
         .kk {
@@ -73,17 +75,18 @@
             height: 60px;
             margin: 2px;
             border-radius: 10px;
-            border:3px solid #fd0000; 
+            border:3px solid #000000; 
             font-size: 24px;
             text-align: center;
             cursor: pointer;
-            background-color: #ffb378;
+            background-color: #fbcfae;
             transition: transform 0.3s;
         }
 
         .key:hover {
-            background-color: #e3d8cf;
-        }
+            transform: translateY(-3px);
+    box-shadow: 0 7px 14px hsla(126, 89%, 38%, 0.2), inset 0 2px 3px rgba(255, 255, 255, 0.3);
+  }
 
         .num{
             width: 150px;
@@ -92,6 +95,8 @@
 
         .k:hover{
             background-color: #e3d8cf;
+            transform: translateY(-3px);
+            box-shadow: 0 7px 14px rgba(0, 0, 0, 0.2);
         }
 
         .space {
@@ -178,23 +183,6 @@
             cursor: pointer;
             border: none;
             border-radius: 5px;
-            transition: transform 0.3s;
-        }
-
-        .themes{
-            padding: 10px;
-            background-color: #af4c4c;
-            color: #fff;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-            float: right;
-            transition: transform 0.3s;
-            text-align: center;
-            cursor: pointer;
-            width: 120px;
-            height: 37px;
-
         }
 
         .emoji-btn {
@@ -408,11 +396,9 @@
         transition: 0.25s;
     }
 
-
-
     </style>
 </head>
-<body >
+<body>
 
     <div>
         <p class="randomtext" id="displayText"></p>
@@ -429,13 +415,7 @@
       
           <div class="keyboard-container">
             <textarea class="textarea" id="mytextarea" placeholder="Start typing or click the button to start voice input..."></textarea>
-            <button class="voice-toggle" onclick="toggleVoiceInput()">Voice Input</button>
-            <!-- <button class="voice-toggle">Auto Prediction</button>    -->
-
-            <div class="bow">
-                <select></select>
-                <button> Listen </button>
-            </div>
+            <button class="voice-toggle" onclick="toggleVoiceInput()">Voice Input</button>            
 
               <div class="stopwatch-container">
                 <div id="stopwatch" class="stopwatch">00:00:00</div>
@@ -491,7 +471,7 @@
         <div class="row">
             <button class = "key tab letterColor" onclick="playSound(this); typeCharacter('')"> tab </button>
             <button class="key letterColor" onclick="playSound(this); typeCharacter('Q')" id="Q">Q</button>
-            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('W')" id="W">W</button>
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('W')" id="W">W</button>
             <button class="key letterColor" onclick="playSound(this); typeCharacter('E')" id="E">E</button>
             <button class="key letterColor" onclick="playSound(this); typeCharacter('R')" id="R">R</button> 
             <button class="key letterColor" onclick="playSound(this); typeCharacter('T')" id="T">T</button>
@@ -507,9 +487,9 @@
         </div>
         <div class="row">
             <button class=" key caps letterColor" onclick="playSound(this); typeCharacter('caps')">caps</button>
-            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('A')" id="A">A</button> 
-            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('S')" id="S">S</button> 
-            <button class="keyss letterColor" onclick="playSound(this); typeCharacter('D')"id="D">D</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('A')" id="A">A</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('S')" id="S">S</button> 
+            <button class="key letterColor" onclick="playSound(this); typeCharacter('D')"id="D">D</button> 
             <button class="key letterColor" onclick="playSound(this); typeCharacter('F')"id="F">F</button> 
             <button class="key letterColor" onclick="playSound(this); typeCharacter('G')" id="G">G</button> 
             <button class="key letterColor" onclick="playSound(this); typeCharacter('H')" id="H">H</button> 
@@ -533,7 +513,7 @@
             <button class="key letterColor" onclick="playSound(this); typeCharacter(',')">,</button> 
             <button class="key letterColor" onclick="playSound(this); typeCharacter('.')">.</button>
             <button class="key letterColor" onclick="playSound(this); typeCharacter('&#47')">/</button> 
-            <button class = "key shift letterColor" onclick="playSound(this); typeCharacter('')">suggest</button>
+            <button class = "key shift letterColor" onclick="playSound(this); typeCharacter('')"> shift </button>
         </div>
             
         <div class="row">
@@ -543,7 +523,7 @@
             <button class="key kk space letterColor" onclick="playSound(this); typeCharacter('space')"></button>
             <button class="key kk letterColor" onclick="playSound(this); typeCharacter('')">alt</button>
             <a href="file:///D:/sem%202%20notes/techabhivikti%202.0/virtual_keyboard/virtual_keyboard_hindi.html">
-            <button class="key kk letterColor" onclick="playSound(this); typeCharacter('')">eng</button>
+            <button class="key kk letterColor" onclick="playSound(this); typeCharacter('')">ENG</button>
         </a>
             <button  class="key kk e letterColor">GIF</button>
         </div>
@@ -565,10 +545,6 @@
             <input type="color" id="letterColor" class="color-input">
     
             <button id="apply-colors">Apply Colors</button>
-            
-            <a href="file:///D:/sem%202%20notes/techabhivikti%202.0/virtual_keyboard/HTML/theme_page.html">
-            <button class="themes">Themes</button>
-        </a>
         </div>
 
         <audio id="keyPressSound" keypress = "auto">
@@ -850,7 +826,7 @@ const backgroundColorInput = document.getElementById('backgroundColor');
             symbolsRow.style.display = (symbolsRow.style.display === 'none') ? 'flex' : 'none';
         }
 
-// ======================= hover________key ============================================
+// ======================= hover__key ============================================
 
         document.querySelectorAll('button').forEach(key => {
     key.addEventListener('mouseover', () => {
@@ -859,7 +835,7 @@ const backgroundColorInput = document.getElementById('backgroundColor');
 
     key.addEventListener('mouseout', () => {
         key.style.transform = 'translateY(0)';
-    });
+    });
 });
 
 // ========================= numerical _____ tab ============================
@@ -1359,27 +1335,7 @@ function toggleText(){
     
 }
 
-// Init text to speech
-let speech = new SpeechSynthesisUtterance();
 
-let voices = [];
-
-let voiceSelect = document.querySelector("select");
-
-window.speechSynthesis.onvoiceschanged = () => { 
-    voices = window.speechSynthesis.getVoices();
-    speech.voice = voices[0];
-
-    voices.forEach((voice, i) => (voiceSelect.options[i] = new Option(voice.name, i)));
- };
-
-voiceSelect.addEventListener("change", () => {
-    speech.voice = voices[voiceSelect.value];
-});
-document.querySelector("button").addEventListener("click", () =>{
-    speech.text = document.querySelector("textarea").value;
-    window.speechSynthesis.speak(speech);
-});
 
         </script>
     </div>

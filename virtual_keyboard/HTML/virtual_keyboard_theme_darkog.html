@@ -26,7 +26,7 @@
         .keyboard {
             display: flex;
             flex-direction: column;
-            background-color: #eeeeee;
+            background-color:  #303030;
             border: 1px solid #ccc;
             border-radius: 5px;
             padding: 30px;
@@ -239,7 +239,7 @@
             transition: 0.25s;
             }
 
-        button.voice-toggle:hover {
+            button.voice-toggle:hover {
             background-color: #0c5310;
         }
 
@@ -408,11 +408,9 @@
         transition: 0.25s;
     }
 
-
-
     </style>
 </head>
-<body >
+<body style="background-color: #252525;">
 
     <div>
         <p class="randomtext" id="displayText"></p>
@@ -431,11 +429,6 @@
             <textarea class="textarea" id="mytextarea" placeholder="Start typing or click the button to start voice input..."></textarea>
             <button class="voice-toggle" onclick="toggleVoiceInput()">Voice Input</button>
             <!-- <button class="voice-toggle">Auto Prediction</button>    -->
-
-            <div class="bow">
-                <select></select>
-                <button> Listen </button>
-            </div>
 
               <div class="stopwatch-container">
                 <div id="stopwatch" class="stopwatch">00:00:00</div>
@@ -1359,27 +1352,7 @@ function toggleText(){
     
 }
 
-// Init text to speech
-let speech = new SpeechSynthesisUtterance();
 
-let voices = [];
-
-let voiceSelect = document.querySelector("select");
-
-window.speechSynthesis.onvoiceschanged = () => { 
-    voices = window.speechSynthesis.getVoices();
-    speech.voice = voices[0];
-
-    voices.forEach((voice, i) => (voiceSelect.options[i] = new Option(voice.name, i)));
- };
-
-voiceSelect.addEventListener("change", () => {
-    speech.voice = voices[voiceSelect.value];
-});
-document.querySelector("button").addEventListener("click", () =>{
-    speech.text = document.querySelector("textarea").value;
-    window.speechSynthesis.speak(speech);
-});
 
         </script>
     </div>
