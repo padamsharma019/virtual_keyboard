@@ -1,5 +1,3 @@
-large
-long
 a
 aa
 aaa
