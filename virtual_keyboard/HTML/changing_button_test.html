@@ -46,7 +46,102 @@ button1.addEventListener('click', buttonFunctions[0]);
 button2.addEventListener('click', buttonFunctions[1]);
 button3.addEventListener('click', buttonFunctions[2]);
 </script>
-    
+    <!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="button1">Button 1</button>
+<button id="button2">Button 2</button>
+<button id="button3">Button 3</button>
+<button id="changeButton">Change Buttons</button>
+
+<script>
+    const button1 = document.getElementById('button1');
+const button2 = document.getElementById('button2');
+const button3 = document.getElementById('button3');
+const changeButton = document.getElementById('changeButton');
+
+// Initial button names and functions
+let buttonNames = ['Button 1', 'Button 2', 'Button 3'];
+let buttonFunctions = [  
+  () => console.log('Button 1 clicked'),
+  () => console.log('Button 2 clicked'),
+  () => console.log('Button 3 clicked')
+];
+
+// Function to change button names and functions
+function changeButtons() {
+  button1.textContent = 'New Button 1';
+  button2.textContent = 'New Button 2';
+  button3.textContent = 'New Button 3';
+
+  buttonFunctions = [
+    () => console.log('New Button 1 clicked'),
+    () => console.log('New Button 2 clicked'),
+    () => console.log('New Button 3 clicked')
+  ];
+}
+
+//   Attach the click event to the changeButton
+changeButton.addEventListener('click', changeButtons);
+
+// Attach click events to the buttons
+button1.addEventListener('click', buttonFunctions[0]);
+button2.addEventListener('click', buttonFunctions[1]);
+button3.addEventListener('click', buttonFunctions[2]);
+</script>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="button1">Button 1</button>
+<button id="button2">Button 2</button>
+<button id="button3">Button 3</button>
+<button id="changeButton">Change Buttons</button>
+
+<script>
+    const button1 = document.getElementById('button1');
+const button2 = document.getElementById('button2');
+const button3 = document.getElementById('button3');
+const changeButton = document.getElementById('changeButton');
+
+// Initial button names and functions
+let buttonNames = ['Button 1', 'Button 2', 'Button 3'];
+let buttonFunctions = [  
+  () => console.log('Button 1 clicked'),
+  () => console.log('Button 2 clicked'),
+  () => console.log('Button 3 clicked')
+];
+
+// Function to change button names and functions
+function changeButtons() {
+  button1.textContent = 'New Button 1';
+  button2.textContent = 'New Button 2';
+  button3.textContent = 'New Button 3';
+
+  buttonFunctions = [
+    () => console.log('New Button 1 clicked'),
+    () => console.log('New Button 2 clicked'),
+    () => console.log('New Button 3 clicked')
+  ];
+}
+
+//   Attach the click event to the changeButton
+changeButton.addEventListener('click', changeButtons);
+
+// Attach click events to the buttons
+button1.addEventListener('click', buttonFunctions[0]);
+button2.addEventListener('click', buttonFunctions[1]);
+button3.addEventListener('click', buttonFunctions[2]);
+</script>
 </body>
 </html> -->
 
